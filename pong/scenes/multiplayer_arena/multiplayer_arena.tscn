@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://co8ohk6nli17o"]
+
+[ext_resource type="Texture2D" uid="uid://8sfst7jireat" path="res://pong/assets/Board.png" id="1_7yeis"]
+[ext_resource type="Script" path="res://pong/scenes/multiplayer_arena/multiplayer_arena.gd" id="1_xjor3"]
+[ext_resource type="PackedScene" uid="uid://lqwsssaowwgn" path="res://pong/scenes/ball/ball.tscn" id="2_jgbj8"]
+[ext_resource type="PackedScene" uid="uid://cidxqp84hd7ok" path="res://pong/scenes/player_1_paddle/player_1_paddle.tscn" id="4_l3exe"]
+[ext_resource type="PackedScene" uid="uid://clffcejpjmh45" path="res://pong/scenes/player_2_paddle/player_2_paddle.tscn" id="5_pny3n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca50i"]
+size = Vector2(1280, 6)
+
+[node name="MultiplayerArena" type="Node"]
+script = ExtResource("1_xjor3")
+ball_scene = ExtResource("2_jgbj8")
+ball_position = Vector2(640, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(1.59601, 1.58283)
+texture = ExtResource("1_7yeis")
+
+[node name="TopWall" type="StaticBody2D" parent="."]
+position = Vector2(640, -3)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+shape = SubResource("RectangleShape2D_ca50i")
+
+[node name="BottomWall" type="StaticBody2D" parent="."]
+position = Vector2(640, 723)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
+shape = SubResource("RectangleShape2D_ca50i")
+
+[node name="Player1Paddle" parent="." instance=ExtResource("4_l3exe")]
+position = Vector2(40, 360)
+
+[node name="Player2Paddle" parent="." instance=ExtResource("5_pny3n")]
+position = Vector2(1240, 360)
