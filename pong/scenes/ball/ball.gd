@@ -25,8 +25,6 @@ func _physics_process(delta: float) -> void:
 		return
 
 	speed += acceleration * delta
-	if global_position.y - ball_radius < 0 || global_position.y + ball_radius > 720:
-		ball_direction.y = -ball_direction.y
 	
 	var collision = move_and_collide(ball_direction * speed * delta)
 	if !collision:
