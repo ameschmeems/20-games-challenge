@@ -4,6 +4,7 @@ signal score_updated(p1_score: int, p2_score: int)
 
 @export var ball_scene: PackedScene
 @export var ball_position: Vector2
+@export var pause_menu_scene: PackedScene
 
 @onready var cpu_paddle = $CPUPaddle
 
@@ -13,6 +14,12 @@ var p2_score: int = 0
 
 func _ready() -> void:
 	spawn_ball()
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		var pause_menu_instance = pause_menu_scene.instantiate()
+		add_child(pause_menu_instance)
+		pause_menu_instance.current_scene = get_tree().current_scene.scene_file_path
 
 func spawn_ball() -> void:
 	ball_instance = ball_scene.instantiate() as CharacterBody2D
@@ -31,4 +38,3 @@ func on_ball_scored_goal(pos: Vector2) -> void:
 		p1_score += 1
 	emit_score_updated()
 	spawn_ball()
-
