@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://co8ohk6nli17o"]
+[gd_scene load_steps=12 format=3 uid="uid://co8ohk6nli17o"]
 
 [ext_resource type="Texture2D" uid="uid://8sfst7jireat" path="res://pong/assets/Board.png" id="1_7yeis"]
 [ext_resource type="Script" path="res://pong/scenes/multiplayer_arena/multiplayer_arena.gd" id="1_xjor3"]
@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://04u4q84qgfbl" path="res://pong/scenes/UI/score_ui/score_ui.tscn" id="3_3l2ti"]
 [ext_resource type="PackedScene" uid="uid://qfjji0ouv0ao" path="res://pong/scenes/UI/pause_menu/pause_menu.tscn" id="3_5eexj"]
 [ext_resource type="PackedScene" uid="uid://cidxqp84hd7ok" path="res://pong/scenes/player_1_paddle/player_1_paddle.tscn" id="4_l3exe"]
+[ext_resource type="AudioStream" uid="uid://d3tvi1ihjrfqm" path="res://pong/assets/audio/bounce_1.mp3" id="5_hi6yx"]
 [ext_resource type="PackedScene" uid="uid://clffcejpjmh45" path="res://pong/scenes/player_2_paddle/player_2_paddle.tscn" id="5_pny3n"]
+[ext_resource type="AudioStream" uid="uid://bb13pv3il1j1y" path="res://pong/assets/audio/bounce_2.mp3" id="6_siw47"]
+[ext_resource type="AudioStream" uid="uid://cfhikw0vlkyx3" path="res://pong/assets/audio/score.mp3" id="7_1nbb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ca50i"]
 size = Vector2(1280, 6)
@@ -19,6 +22,15 @@ pause_menu_scene = ExtResource("3_5eexj")
 
 [node name="ScoreUI" parent="." node_paths=PackedStringArray("main_scene") instance=ExtResource("3_3l2ti")]
 main_scene = NodePath("..")
+
+[node name="SfxBounce1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hi6yx")
+
+[node name="SfxBounce2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_siw47")
+
+[node name="SfxScore" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_1nbb8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 360)

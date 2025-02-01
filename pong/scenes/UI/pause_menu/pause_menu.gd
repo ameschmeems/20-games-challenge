@@ -9,6 +9,11 @@ func _ready() -> void:
 	%RestartButton.pressed.connect(on_restart_button_pressed)
 	%BackButton.pressed.connect(on_back_button_pressed)
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		get_tree().paused = false
+		queue_free()
+
 func on_resume_button_pressed():
 	get_tree().paused = false
 	queue_free()

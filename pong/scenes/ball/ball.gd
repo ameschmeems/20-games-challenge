@@ -29,7 +29,9 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(ball_direction * speed * delta)
 	if !collision:
 		return
-	
+	var parent = get_parent()
+	if parent.has_method("bounce_sfx_play"):
+		parent.bounce_sfx_play()
 	ball_direction = ball_direction.bounce(collision.get_normal())
 
 func emit_scored_goal():

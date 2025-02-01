@@ -6,9 +6,14 @@ signal score_updated(p1_score: int, p2_score: int)
 @export var ball_position: Vector2
 @export var pause_menu_scene: PackedScene
 
+@onready var sfx_score = $SfxScore
+@onready var sfx_bounce1 = $SfxBounce1
+@onready var sfx_bounce2 = $SfxBounce2
+
 var ball_instance: CharacterBody2D
 var p1_score: int = 0
 var p2_score: int = 0
+var bounce_sfx_change = false
 
 func _ready() -> void:
 	spawn_ball()
@@ -25,6 +30,13 @@ func spawn_ball() -> void:
 	add_child(ball_instance)
 	ball_instance.scored_goal.connect(on_ball_scored_goal)
 
+func bounce_sfx_play() -> void:
+	if !bounce_sfx_change:
+		sfx_bounce1.play()
+	else:
+		sfx_bounce2.play()
+	bounce_sfx_change = !bounce_sfx_change
+
 func emit_score_updated():
 	score_updated.emit(p1_score, p2_score)
 
@@ -33,6 +45,6 @@ func on_ball_scored_goal(pos: Vector2) -> void:
 		p2_score += 1
 	else:
 		p1_score += 1
-	print(p1_score, " - ", p2_score)
+	sfx_score.play()
 	emit_score_updated()
 	spawn_ball()
