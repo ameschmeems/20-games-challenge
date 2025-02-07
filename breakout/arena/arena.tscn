@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwuh20el1nm28"]
+[gd_scene load_steps=7 format=3 uid="uid://cwuh20el1nm28"]
 
 [ext_resource type="PackedScene" uid="uid://cf8r33mdk6chq" path="res://breakout/brick_manager/brick_manager.tscn" id="1_ksfm4"]
+[ext_resource type="Script" path="res://breakout/arena/arena.gd" id="1_n3jai"]
 [ext_resource type="PackedScene" uid="uid://bgp5ksj58p7sk" path="res://breakout/paddle/paddle.tscn" id="1_u6fa1"]
 [ext_resource type="PackedScene" uid="uid://c7nmhmjca70qw" path="res://breakout/ball/ball.tscn" id="2_wpmf2"]
 
@@ -11,6 +12,8 @@ size = Vector2(1280, 6)
 size = Vector2(6, 720)
 
 [node name="Arena" type="Node"]
+script = ExtResource("1_n3jai")
+ball_scene = ExtResource("2_wpmf2")
 
 [node name="BrickManager" parent="." instance=ExtResource("1_ksfm4")]
 
@@ -35,6 +38,3 @@ shape = SubResource("RectangleShape2D_wqn7f")
 
 [node name="Paddle" parent="." instance=ExtResource("1_u6fa1")]
 position = Vector2(640, 680)
-
-[node name="Ball" parent="." instance=ExtResource("2_wpmf2")]
-position = Vector2(640, 624)
