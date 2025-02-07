@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwuh20el1nm28"]
+
+[ext_resource type="PackedScene" uid="uid://cf8r33mdk6chq" path="res://breakout/brick_manager/brick_manager.tscn" id="1_ksfm4"]
+[ext_resource type="PackedScene" uid="uid://bgp5ksj58p7sk" path="res://breakout/paddle/paddle.tscn" id="1_u6fa1"]
+[ext_resource type="PackedScene" uid="uid://c7nmhmjca70qw" path="res://breakout/ball/ball.tscn" id="2_wpmf2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkk24"]
+size = Vector2(1280, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqn7f"]
+size = Vector2(6, 720)
+
+[node name="Arena" type="Node"]
+
+[node name="BrickManager" parent="." instance=ExtResource("1_ksfm4")]
+
+[node name="TopWall" type="StaticBody2D" parent="."]
+position = Vector2(640, -3)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+shape = SubResource("RectangleShape2D_pkk24")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-3, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource("RectangleShape2D_wqn7f")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(1283, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+shape = SubResource("RectangleShape2D_wqn7f")
+
+[node name="Paddle" parent="." instance=ExtResource("1_u6fa1")]
+position = Vector2(640, 680)
+
+[node name="Ball" parent="." instance=ExtResource("2_wpmf2")]
+position = Vector2(640, 624)
