@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf8r33mdk6chq"]
-
-[ext_resource type="Script" path="res://breakout/brick_manager/brick_manager.gd" id="1_bm2we"]
-[ext_resource type="PackedScene" uid="uid://b4bnxhpgify1j" path="res://breakout/brick/brick.tscn" id="2_o4hho"]
-
-[node name="BrickManager" type="Node"]
-script = ExtResource("1_bm2we")
-brick_scene = ExtResource("2_o4hho")

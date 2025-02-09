@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7nmhmjca70qw"]
 
 [ext_resource type="Texture2D" uid="uid://gfal05cnct2l" path="res://pong/scenes/ball/Ball.png" id="1_3jr37"]
-[ext_resource type="Script" path="res://breakout/ball/ball.gd" id="1_4qlwc"]
+[ext_resource type="Script" path="res://breakout/scenes/ball/ball.gd" id="1_4qlwc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8s0rj"]
 radius = 16.0

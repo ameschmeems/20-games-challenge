@@ -21,7 +21,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if global_position.y > SCREEN_HEIGHT + ball_radius:
-		print("ball dropped")
 		emit_ball_dropped()
 		queue_free()
 	

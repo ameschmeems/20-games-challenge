@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://co8ohk6nli17o"]
+[gd_scene load_steps=13 format=3 uid="uid://co8ohk6nli17o"]
 
 [ext_resource type="Texture2D" uid="uid://8sfst7jireat" path="res://pong/assets/Board.png" id="1_7yeis"]
 [ext_resource type="Script" path="res://pong/scenes/multiplayer_arena/multiplayer_arena.gd" id="1_xjor3"]
 [ext_resource type="PackedScene" uid="uid://lqwsssaowwgn" path="res://pong/scenes/ball/ball.tscn" id="2_jgbj8"]
 [ext_resource type="PackedScene" uid="uid://04u4q84qgfbl" path="res://pong/scenes/UI/score_ui/score_ui.tscn" id="3_3l2ti"]
-[ext_resource type="PackedScene" uid="uid://qfjji0ouv0ao" path="res://pong/scenes/UI/pause_menu/pause_menu.tscn" id="3_5eexj"]
+[ext_resource type="PackedScene" uid="uid://qfjji0ouv0ao" path="res://common/UI/pause_menu/pause_menu.tscn" id="3_5eexj"]
+[ext_resource type="PackedScene" uid="uid://blueyed0w1eoj" path="res://pong/scenes/main_menu/main_menu.tscn" id="4_kvfjq"]
 [ext_resource type="PackedScene" uid="uid://cidxqp84hd7ok" path="res://pong/scenes/player_1_paddle/player_1_paddle.tscn" id="4_l3exe"]
 [ext_resource type="AudioStream" uid="uid://d3tvi1ihjrfqm" path="res://pong/assets/audio/bounce_1.mp3" id="5_hi6yx"]
 [ext_resource type="PackedScene" uid="uid://clffcejpjmh45" path="res://pong/scenes/player_2_paddle/player_2_paddle.tscn" id="5_pny3n"]
@@ -19,6 +20,7 @@ script = ExtResource("1_xjor3")
 ball_scene = ExtResource("2_jgbj8")
 ball_position = Vector2(640, 360)
 pause_menu_scene = ExtResource("3_5eexj")
+main_menu_scene = ExtResource("4_kvfjq")
 
 [node name="ScoreUI" parent="." node_paths=PackedStringArray("main_scene") instance=ExtResource("3_3l2ti")]
 main_scene = NodePath("..")

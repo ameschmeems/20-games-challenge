@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4bnxhpgify1j"]
 
-[ext_resource type="Script" path="res://breakout/brick/brick.gd" id="1_mcrpe"]
+[ext_resource type="Script" path="res://breakout/scenes/brick/brick.gd" id="1_mcrpe"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xrabk"]
 size = Vector2(100, 40)

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://btg3qpjnlm4yv"]
+
+[ext_resource type="PackedScene" uid="uid://d1q8h10cbo3th" path="res://common/UI/game_select_panel/game_select_panel.tscn" id="1_x4bey"]
+[ext_resource type="PackedScene" uid="uid://blueyed0w1eoj" path="res://pong/scenes/main_menu/main_menu.tscn" id="2_ywcqi"]
+[ext_resource type="PackedScene" uid="uid://cwuh20el1nm28" path="res://breakout/scenes/arena/arena.tscn" id="3_ra4cx"]
+
+[node name="GameSelectScreen" type="Node"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="GameSelectPanel" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource("1_x4bey")]
+layout_mode = 2
+title = "Pong"
+game_scene = ExtResource("2_ywcqi")
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="GameSelectPanel" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer2" instance=ExtResource("1_x4bey")]
+layout_mode = 2
+title = "Breakout"
+game_scene = ExtResource("3_ra4cx")

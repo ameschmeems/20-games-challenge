@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgp5ksj58p7sk"]
 
-[ext_resource type="Script" path="res://breakout/paddle/paddle.gd" id="1_dxwyo"]
+[ext_resource type="Script" path="res://breakout/scenes/paddle/paddle.gd" id="1_dxwyo"]
 [ext_resource type="Texture2D" uid="uid://1g024b5t2av3" path="res://pong/scenes/player_1_paddle/Player1.png" id="1_xbbeh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_853ui"]
