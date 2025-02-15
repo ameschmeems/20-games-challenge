@@ -11,9 +11,15 @@ const SCREEN_HEIGHT = 720
 var bricks_per_row = 8
 var num_rows = 4
 var x_start_offset = 250
-var x_offset = (SCREEN_WIDTH - 2 * x_start_offset) / (bricks_per_row - 1)
+var x_offset = (float(SCREEN_WIDTH) - 2 * x_start_offset) / (bricks_per_row - 1)
 var y_offset = 60
 var num_bricks = 0
+var colors = [
+	Color.RED,
+	Color.YELLOW,
+	Color.GREEN,
+	Color.BLUE
+]
 
 func _ready() -> void:
 	init_bricks()
@@ -24,6 +30,7 @@ func init_bricks() -> void:
 			var brick_instance = brick_scene.instantiate()
 			brick_instance.global_position = Vector2(x_start_offset + x_offset * col, y_offset * (row + 1))
 			brick_instance.deleted.connect(on_brick_deleted)
+			brick_instance.modulate = colors[row]
 			add_child(brick_instance)
 			num_bricks += 1
 

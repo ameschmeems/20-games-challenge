@@ -7,6 +7,7 @@ const SCREEN_HEIGHT = 720
 @export var starting_speed: float = 300
 
 @onready var ball_radius = $CollisionShape2D.shape.radius
+@onready var sfx_nodes = [$Bounce1Sfx, $Bounce2Sfx]
 
 var speed = 0
 var ball_direction: Vector2
@@ -27,6 +28,10 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(ball_direction * speed * delta)
 	if !collision:
 		return
+
+	var sound = sfx_nodes.pick_random()
+	sound.play()
+
 	var collider: Node = collision.get_collider()
 	if collider && collider.is_in_group("paddle"):
 		ball_direction = (global_position - collider.global_position) * 0.5 + ball_direction.bounce(collision.get_normal()) * 0.5

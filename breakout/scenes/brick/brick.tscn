@@ -1,18 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4bnxhpgify1j"]
 
 [ext_resource type="Script" path="res://breakout/scenes/brick/brick.gd" id="1_mcrpe"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xrabk"]
-size = Vector2(100, 40)
+[ext_resource type="Texture2D" uid="uid://cl3g6g78tol75" path="res://breakout/scenes/brick/white.png" id="2_2qpa5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_doaow"]
-size = Vector2(100, 40)
+size = Vector2(1, 1)
 
 [node name="Brick" type="StaticBody2D"]
+scale = Vector2(100, 40)
 script = ExtResource("1_mcrpe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_xrabk")
+texture = ExtResource("2_2qpa5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_doaow")
