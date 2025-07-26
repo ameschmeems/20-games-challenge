@@ -8,7 +8,8 @@ var is_moving: bool = false
 @onready var game_manager = $"../GameManager"
 
 func _process(_delta: float) -> void:
-	if position.x < 0 || position.x > 1280:
+	if global_position.x < 0 || global_position.x > 1280:
+		print("Out of bounds! global_position: ", global_position)
 		game_manager.kill_player()
 
 func _input(_event: InputEvent) -> void:
@@ -26,7 +27,7 @@ func _input(_event: InputEvent) -> void:
 		move(Vector2.DOWN)
 
 func move(direction: Vector2):
-	var destination: Vector2 = position + direction * TILE_SIZE
+	var destination: Vector2 = global_position + direction * TILE_SIZE
 
 	if destination.y > 768:
 		return
@@ -35,7 +36,7 @@ func move(direction: Vector2):
 
 	var tween = self.create_tween()
 
-	tween.tween_property(self, "position", destination, HOP_TIME_SEC).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "global_position", destination, HOP_TIME_SEC).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(flip_is_moving)
 	tween.play()
 

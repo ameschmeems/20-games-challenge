@@ -25,6 +25,7 @@ func _ready() -> void:
 		log_instance.position = Vector2(-x_boundary, 0) + water_tiles_between_logs * TILE_SIZE * i * direction + TILE_SIZE * i * LOG_TILES * direction
 		print("Log position: ", log_instance.position)
 		log_instance.body_entered.connect(on_log_body_entered)
+		log_instance.body_exited.connect(on_log_body_exited)
 		add_child(log_instance)
 		objects.append(log_instance)
 		for j in water_tiles_between_logs:
@@ -34,16 +35,19 @@ func _ready() -> void:
 			add_child(water)
 			objects.append(water)
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	for object in objects:
 		var new_position = speed * delta * direction + object.position
-		if abs(new_position.x - x_boundary) < 10:
+		if abs(new_position.x - x_boundary) < 10 && !object.is_in_group("player"):
 			object.position.x = -x_boundary
 		else:
 			object.position = new_position
 
-func on_log_body_entered(_body):
-	pass
+func on_log_body_entered(body):
+	objects.append(body)
+
+func on_log_body_exited(_body):
+	objects.pop_back()
 
 func on_water_body_entered(_body):
 	player_drowned.emit()
