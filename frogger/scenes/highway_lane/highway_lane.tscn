@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxn2fpi33iw13"]
 
-[ext_resource type="Script" path="res://highway_lane.gd" id="1_ewswi"]
+[ext_resource type="Script" path="res://frogger/scenes/highway_lane/highway_lane.gd" id="1_ewswi"]
 
 [node name="HighwayLane" type="Node2D"]
 script = ExtResource("1_ewswi")

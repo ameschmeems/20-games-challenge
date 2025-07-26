@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const TILE_SIZE: int = 64
-const HOP_TIME_SEC: float = 0.2
+const HOP_TIME_SEC: float = 0.15
 
 var is_moving: bool = false
 

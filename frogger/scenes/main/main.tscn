@@ -1,15 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyhuypwbm3g10"]
+[gd_scene load_steps=10 format=3 uid="uid://cyhuypwbm3g10"]
 
 [ext_resource type="PackedScene" uid="uid://dqdsv2kuyn8b0" path="res://frogger/scenes/frog/frog.tscn" id="1_c2c2o"]
 [ext_resource type="Script" path="res://frogger/scenes/main/game_manager.gd" id="1_qsurr"]
 [ext_resource type="PackedScene" uid="uid://dxn2fpi33iw13" path="res://frogger/scenes/highway_lane/highway_lane.tscn" id="2_1mwlt"]
 [ext_resource type="Script" path="res://frogger/scenes/main/highway_lanes.gd" id="2_cqblb"]
 [ext_resource type="PackedScene" uid="uid://ch5jqrfa7dmro" path="res://frogger/scenes/car/car.tscn" id="3_2nj3i"]
+[ext_resource type="PackedScene" uid="uid://bgjd53vmvh4ko" path="res://frogger/scenes/log_lane/log_lane.tscn" id="5_asx82"]
+[ext_resource type="Script" path="res://frogger/scenes/main/water_lanes.gd" id="5_wjo7l"]
+[ext_resource type="PackedScene" uid="uid://daw7w73n72dco" path="res://frogger/scenes/log/log.tscn" id="6_7f64w"]
+[ext_resource type="PackedScene" uid="uid://geggfwa5sy4k" path="res://frogger/scenes/water/water.tscn" id="7_7m0s7"]
 
 [node name="Main" type="Node"]
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_qsurr")
+spawn_point = Vector2(608, 736)
 
 [node name="HighwayLanes" type="Node" parent="."]
 script = ExtResource("2_cqblb")
@@ -18,7 +23,6 @@ script = ExtResource("2_cqblb")
 position = Vector2(640, 672)
 vehicle_scene = ExtResource("3_2nj3i")
 distance_between_vehicles = 400
-x_boundary = 800
 speed = 150
 
 [node name="HighwayLane2" parent="HighwayLanes" instance=ExtResource("2_1mwlt")]
@@ -34,7 +38,6 @@ position = Vector2(640, 544)
 vehicle_scene = ExtResource("3_2nj3i")
 num_vehicles = 4
 distance_between_vehicles = 450
-x_boundary = 800
 speed = 100
 
 [node name="HighwayLane4" parent="HighwayLanes" instance=ExtResource("2_1mwlt")]
@@ -50,7 +53,14 @@ position = Vector2(640, 416)
 vehicle_scene = ExtResource("3_2nj3i")
 num_vehicles = 5
 distance_between_vehicles = 350
-x_boundary = 800
+
+[node name="WaterLanes" type="Node" parent="."]
+script = ExtResource("5_wjo7l")
+
+[node name="LogLane" parent="WaterLanes" instance=ExtResource("5_asx82")]
+position = Vector2(640, 288)
+log_scene = ExtResource("6_7f64w")
+water_scene = ExtResource("7_7m0s7")
 
 [node name="Frog" parent="." instance=ExtResource("1_c2c2o")]
-position = Vector2(32, 736)
+position = Vector2(608, 736)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqdsv2kuyn8b0"]
 
-[ext_resource type="Script" path="res://frog.gd" id="1_46ajl"]
+[ext_resource type="Script" path="res://frogger/scenes/frog/frog.gd" id="1_46ajl"]
 [ext_resource type="Texture2D" uid="uid://bfhnjljsyp5el" path="res://icon.svg" id="2_hyw38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aaydc"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgjd53vmvh4ko"]
+
+[ext_resource type="Script" path="res://frogger/scenes/log_lane/log_lane.gd" id="1_f5qrw"]
+
+[node name="LogLane" type="Node2D"]
+script = ExtResource("1_f5qrw")
+speed = null
+direction = null
+x_boundary = null
