@@ -9,7 +9,6 @@ var is_moving: bool = false
 
 func _process(_delta: float) -> void:
 	if global_position.x < 0 || global_position.x > 1280:
-		print("Out of bounds! global_position: ", global_position)
 		game_manager.kill_player()
 
 func _input(_event: InputEvent) -> void:
@@ -37,11 +36,18 @@ func move(direction: Vector2):
 	var tween = self.create_tween()
 
 	tween.tween_property(self, "global_position", destination, HOP_TIME_SEC).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_callback(flip_is_moving)
 	tween.play()
+	await tween.finished
+	is_moving = false
 
-func flip_is_moving():
-	is_moving = !is_moving
+func entered_lilypad(destination: Vector2):
+	is_moving = true
+
+	var tween = self.create_tween()
+	tween.tween_property(self, "global_position", destination, HOP_TIME_SEC).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.play()
+	await tween.finished
+	game_manager.lilypad_done()
 
 func die():
 	print("You died!")

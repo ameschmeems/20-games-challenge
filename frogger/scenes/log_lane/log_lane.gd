@@ -18,12 +18,9 @@ signal player_drowned
 func _ready() -> void:
 	var water_tiles_between_logs: int = (SCREEN_WIDTH - TILE_SIZE * LOG_TILES * log_amount) / ((log_amount - 1) * TILE_SIZE)
 
-	print("Water tiles between logs: ", water_tiles_between_logs)
-
 	for i in log_amount:
 		var log_instance: Area2D = log_scene.instantiate()
 		log_instance.position = Vector2(-x_boundary, 0) + water_tiles_between_logs * TILE_SIZE * i * direction + TILE_SIZE * i * LOG_TILES * direction
-		print("Log position: ", log_instance.position)
 		log_instance.body_entered.connect(on_log_body_entered)
 		log_instance.body_exited.connect(on_log_body_exited)
 		add_child(log_instance)

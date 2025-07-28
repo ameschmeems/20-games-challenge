@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyhuypwbm3g10"]
+[gd_scene load_steps=11 format=3 uid="uid://cyhuypwbm3g10"]
 
 [ext_resource type="PackedScene" uid="uid://dqdsv2kuyn8b0" path="res://frogger/scenes/frog/frog.tscn" id="1_c2c2o"]
 [ext_resource type="Script" path="res://frogger/scenes/main/game_manager.gd" id="1_qsurr"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://frogger/scenes/main/water_lanes.gd" id="5_wjo7l"]
 [ext_resource type="PackedScene" uid="uid://daw7w73n72dco" path="res://frogger/scenes/log/log.tscn" id="6_7f64w"]
 [ext_resource type="PackedScene" uid="uid://geggfwa5sy4k" path="res://frogger/scenes/water/water.tscn" id="7_7m0s7"]
+[ext_resource type="PackedScene" uid="uid://h16gtyhdrpry" path="res://frogger/scenes/lilypad/lilypad.tscn" id="9_26vwm"]
 
 [node name="Main" type="Node"]
 
@@ -84,6 +85,87 @@ position = Vector2(640, 97)
 log_scene = ExtResource("6_7f64w")
 water_scene = ExtResource("7_7m0s7")
 speed = 200
+
+[node name="LilypadLane" type="Node" parent="."]
+
+[node name="Waters" type="Node" parent="LilypadLane"]
+
+[node name="Water" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(32, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water2" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(96, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water3" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(160, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water4" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(288, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water5" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(352, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water6" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(480, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water7" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(544, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water8" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(608, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water9" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(736, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water10" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(800, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water11" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(928, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water12" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(992, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water13" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(1120, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water14" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(1184, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Water15" parent="LilypadLane/Waters" instance=ExtResource("7_7m0s7")]
+position = Vector2(1248, 32)
+scale = Vector2(0.5, 0.5)
+
+[node name="Lilypads" type="Node" parent="LilypadLane"]
+
+[node name="Lilypad" parent="LilypadLane/Lilypads" instance=ExtResource("9_26vwm")]
+position = Vector2(224, 32)
+
+[node name="Lilypad2" parent="LilypadLane/Lilypads" instance=ExtResource("9_26vwm")]
+position = Vector2(416, 32)
+
+[node name="Lilypad3" parent="LilypadLane/Lilypads" instance=ExtResource("9_26vwm")]
+position = Vector2(672, 32)
+
+[node name="Lilypad4" parent="LilypadLane/Lilypads" instance=ExtResource("9_26vwm")]
+position = Vector2(864, 32)
+
+[node name="Lilypad5" parent="LilypadLane/Lilypads" instance=ExtResource("9_26vwm")]
+position = Vector2(1056, 32)
 
 [node name="Frog" parent="." instance=ExtResource("1_c2c2o")]
 position = Vector2(608, 736)
