@@ -28,6 +28,7 @@ func lilypad_done():
 	lilypads -= 1
 	if lilypads <= 0:
 		print("You won!")
+		player.queue_free()
 		return
 	player.queue_free()
 	player = frog_scene.instantiate()
