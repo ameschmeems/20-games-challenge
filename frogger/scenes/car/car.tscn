@@ -1,6 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch5jqrfa7dmro"]
+[gd_scene load_steps=6 format=3 uid="uid://ch5jqrfa7dmro"]
 
-[ext_resource type="Texture2D" uid="uid://bfhnjljsyp5el" path="res://icon.svg" id="1_77ppf"]
+[ext_resource type="Texture2D" uid="uid://dwm08l7h2nka6" path="res://frogger/scenes/car/car.png" id="1_ygu8m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wej0o"]
+atlas = ExtResource("1_ygu8m")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00g5d"]
+atlas = ExtResource("1_ygu8m")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgwqk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wej0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00g5d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tqfh"]
 size = Vector2(64, 64)
@@ -8,9 +30,13 @@ size = Vector2(64, 64)
 [node name="Car" type="Area2D"]
 collision_mask = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_77ppf")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_qgwqk")
+autoplay = "default"
+frame_progress = 0.839747
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3tqfh")

@@ -16,6 +16,8 @@ func _ready() -> void:
 		var vehicle: Area2D = vehicle_scene.instantiate()
 		vehicle.position = Vector2(-x_boundary, 0) + distance_between_vehicles * i * direction
 		vehicle.body_entered.connect(on_vehicle_body_entered)
+		if direction == Vector2.RIGHT:
+			vehicle.rotate(PI)
 		add_child(vehicle)
 		vehicles.append(vehicle)
 
