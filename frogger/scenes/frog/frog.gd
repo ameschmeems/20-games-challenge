@@ -4,12 +4,15 @@ const TILE_SIZE: int = 64
 const HOP_TIME_SEC: float = 0.2
 
 var is_moving: bool = false
+# var is_dead: bool = false
 
 @onready var game_manager = $"../GameManager"
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var particles: CPUParticles2D = $CPUParticles2D
 
 func _ready() -> void:
 	rotation = Vector2.UP.angle()
+	particles.finished.connect(on_particles_finished)
 
 func _process(_delta: float) -> void:
 	if global_position.x < 0 || global_position.x > 1280:
@@ -56,5 +59,10 @@ func entered_lilypad(destination: Vector2):
 	game_manager.lilypad_done()
 
 func die():
-	print("You died!")
-	queue_free()	
+	$CollisionShape2D.set_deferred("disabled", true)
+	$AnimatedSprite2D.visible = false
+	particles.emitting = true
+	await particles.finished
+
+func on_particles_finished():
+	queue_free()
