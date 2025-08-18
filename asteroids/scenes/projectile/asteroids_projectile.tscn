@@ -8,6 +8,7 @@ radius = 4.0
 height = 16.0
 
 [node name="AsteroidsProjectile" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_56d5p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,3 +17,8 @@ texture = ExtResource("1_htgos")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_pxggk")
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true

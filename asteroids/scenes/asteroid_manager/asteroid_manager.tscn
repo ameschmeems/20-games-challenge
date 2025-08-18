@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3pvfy5tyxo1p"]
+
+[ext_resource type="Script" path="res://asteroids/scenes/asteroid_manager/asteroid_manager.gd" id="1_ys528"]
+
+[node name="AsteroidManager" type="Node"]
+script = ExtResource("1_ys528")
