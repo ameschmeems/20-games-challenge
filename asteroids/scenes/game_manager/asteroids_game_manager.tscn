@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://d1ei6d82wcewp"]
+
+[node name="AsteroidsGameManager" type="Node"]
