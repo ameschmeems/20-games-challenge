@@ -1,7 +1,10 @@
 extends Area2D
 class_name Asteroid
 
-@onready var screen_size = get_viewport_rect().size
+@onready var screen_size: Vector2 = get_viewport_rect().size
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var explosion_particles: CPUParticles2D = $ExplosionParticles
 
 var direction: Vector2 = Vector2.UP
 var speed: float = 125
@@ -33,6 +36,10 @@ func screen_wrap():
 
 func hit():
 	asteroid_hit.emit(size, global_position)
+	collision_shape.set_deferred("disabled", true)
+	sprite.set_deferred("visible", false)
+	explosion_particles.set_deferred("emitting", true)
+	await explosion_particles.finished
 	queue_free()
 
 func on_body_entered(body: CharacterBody2D):

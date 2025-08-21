@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://0ng6ygki3n8t"]
 
 [ext_resource type="Script" path="res://asteroids/scenes/projectile/asteroids_projectile.gd" id="1_56d5p"]
-[ext_resource type="Texture2D" uid="uid://bfhnjljsyp5el" path="res://icon.svg" id="1_htgos"]
+[ext_resource type="Texture2D" uid="uid://bo5002x7ktyg0" path="res://asteroids/scenes/projectile/projectile.png" id="2_17ox0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pxggk"]
 radius = 4.0
@@ -12,8 +12,9 @@ collision_layer = 2
 script = ExtResource("1_56d5p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.063, 0.125)
-texture = ExtResource("1_htgos")
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_17ox0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_pxggk")

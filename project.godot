@@ -90,3 +90,7 @@ shoot={
 2d_physics/layer_2="player"
 2d_physics/size/viewport_width=1152
 2d_physics/size/viewport_height=768
+
+[rendering]
+
+viewport/hdr_2d=true

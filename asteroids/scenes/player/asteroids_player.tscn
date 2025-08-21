@@ -1,10 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://sa0drb4lotx2"]
+[gd_scene load_steps=9 format=3 uid="uid://sa0drb4lotx2"]
 
 [ext_resource type="Script" path="res://asteroids/scenes/player/asteroids_player.gd" id="1_0inm5"]
-[ext_resource type="Texture2D" uid="uid://bfhnjljsyp5el" path="res://icon.svg" id="1_r0yjv"]
+[ext_resource type="Texture2D" uid="uid://ctmpk1yonr5uk" path="res://asteroids/scenes/player/ship.png" id="2_ouj6r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0wp0"]
+atlas = ExtResource("2_ouj6r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agq4a"]
+atlas = ExtResource("2_ouj6r")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnk0l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0wp0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agq4a")
+}],
+"loop": true,
+"name": &"thrust",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7j718"]
-radius = 56.5685
+radius = 45.0
+
+[sub_resource type="Curve" id="Curve_x85eq"]
+_data = [Vector2(0, 0.989011), 0.0, 0.0, 0, 0, Vector2(0.980488, 0.010989), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_rjljm"]
+_data = [Vector2(0.0390244, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="AsteroidsPlayer" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -13,8 +48,53 @@ script = ExtResource("1_0inm5")
 rotate_speed = 5.0
 speed_slowdown = 2.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_r0yjv")
+[node name="InvulnTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_mnk0l")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7j718")
+disabled = true
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 32
+lifetime = 1.5
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.7
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_x85eq")
+color = Color(1, 0.92549, 0.839216, 1)
+
+[node name="ThrustParticles" type="CPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(0, 48)
+emitting = false
+amount = 32
+lifetime = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, 1)
+spread = 100.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_rjljm")
+color = Color(0.552941, 0.411765, 0.478431, 1)

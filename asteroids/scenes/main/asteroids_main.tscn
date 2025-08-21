@@ -1,19 +1,72 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2ch6u3mbd2q0"]
+[gd_scene load_steps=6 format=3 uid="uid://c2ch6u3mbd2q0"]
 
 [ext_resource type="PackedScene" uid="uid://dxvjd043p6nrr" path="res://asteroids/scenes/HUD/asteroids_hud.tscn" id="1_xtixe"]
 [ext_resource type="PackedScene" uid="uid://d3pvfy5tyxo1p" path="res://asteroids/scenes/asteroid_manager/asteroid_manager.tscn" id="3_majnj"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tijdu"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 360, 1)
+initial_velocity_min = -10.0
+initial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+color = Color(1, 0.92549, 0.839216, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_82dkl"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 360, 1)
+initial_velocity_min = -20.0
+initial_velocity_max = -20.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+color = Color(1, 0.92549, 0.839216, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_33t2t"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 360, 1)
+initial_velocity_min = -40.0
+initial_velocity_max = -40.0
+gravity = Vector3(0, 0, 0)
+scale_min = 6.0
+scale_max = 6.0
+color = Color(1, 0.92549, 0.839216, 1)
 
 [node name="AsteroidsMain" type="Node"]
 
 [node name="AsteroidsHUD" parent="." instance=ExtResource("1_xtixe")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.0509804, 0.168627, 0.270588, 1)
+
+[node name="StarfieldBack" type="GPUParticles2D" parent="ColorRect"]
+position = Vector2(1300, 360)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_tijdu")
+lifetime = 140.0
+preprocess = 140.0
+
+[node name="StarfieldMiddle" type="GPUParticles2D" parent="ColorRect"]
+position = Vector2(1300, 360)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_82dkl")
+lifetime = 140.0
+preprocess = 140.0
+
+[node name="StarfieldFront" type="GPUParticles2D" parent="ColorRect"]
+position = Vector2(1300, 360)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_33t2t")
+lifetime = 140.0
+preprocess = 140.0
 
 [node name="AsteroidManager" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("3_majnj")]
 hud = NodePath("../AsteroidsHUD")
