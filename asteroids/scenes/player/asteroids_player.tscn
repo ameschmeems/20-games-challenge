@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://sa0drb4lotx2"]
+[gd_scene load_steps=12 format=3 uid="uid://sa0drb4lotx2"]
 
 [ext_resource type="Script" path="res://asteroids/scenes/player/asteroids_player.gd" id="1_0inm5"]
 [ext_resource type="Texture2D" uid="uid://ctmpk1yonr5uk" path="res://asteroids/scenes/player/ship.png" id="2_ouj6r"]
+[ext_resource type="AudioStream" uid="uid://ddpm6ur122iyh" path="res://asteroids/sfx/thrust.wav" id="2_ph2e0"]
+[ext_resource type="AudioStream" uid="uid://dqb2cewyd72wa" path="res://asteroids/sfx/bangMedium.wav" id="2_psqfj"]
+[ext_resource type="AudioStream" uid="uid://03e84jyv2fq3" path="res://asteroids/sfx/fire.wav" id="3_abgro"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0wp0"]
 atlas = ExtResource("2_ouj6r")
@@ -47,6 +50,18 @@ collision_layer = 2
 script = ExtResource("1_0inm5")
 rotate_speed = 5.0
 speed_slowdown = 2.0
+
+[node name="SfxCrash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_psqfj")
+volume_db = -8.0
+
+[node name="SfxThrust" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ph2e0")
+volume_db = -8.0
+
+[node name="SfxShoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_abgro")
+volume_db = -8.0
 
 [node name="InvulnTimer" type="Timer" parent="."]
 one_shot = true

@@ -5,6 +5,7 @@ class_name Asteroid
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var explosion_particles: CPUParticles2D = $ExplosionParticles
+@onready var sfx_crash: AudioStreamPlayer = $SfxCrash
 
 var direction: Vector2 = Vector2.UP
 var speed: float = 125
@@ -35,6 +36,7 @@ func screen_wrap():
 	global_position.y = wrapf(global_position.y, 0, screen_size.y)
 
 func hit():
+	sfx_crash.play()
 	asteroid_hit.emit(size, global_position)
 	collision_shape.set_deferred("disabled", true)
 	sprite.set_deferred("visible", false)

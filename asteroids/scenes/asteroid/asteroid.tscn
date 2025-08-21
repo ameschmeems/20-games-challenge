@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://2n3k10keqbqp"]
+[gd_scene load_steps=6 format=3 uid="uid://2n3k10keqbqp"]
 
 [ext_resource type="Script" path="res://asteroids/scenes/asteroid/asteroid.gd" id="1_vcfsc"]
+[ext_resource type="AudioStream" uid="uid://dqb2cewyd72wa" path="res://asteroids/sfx/bangMedium.wav" id="2_l886q"]
 [ext_resource type="Texture2D" uid="uid://58qgk52gqhul" path="res://asteroids/scenes/asteroid/asteroid.png" id="2_s34xh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w18t2"]
@@ -13,6 +14,10 @@ point_count = 2
 [node name="Asteroid" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_vcfsc")
+
+[node name="SfxCrash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_l886q")
+volume_db = -8.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
