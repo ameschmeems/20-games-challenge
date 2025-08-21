@@ -9,6 +9,8 @@ extends CharacterBody2D
 
 var direction = Vector2.UP
 
+signal player_died
+
 func _physics_process(delta: float) -> void:
 	var rot_direction = Input.get_axis("move_left", "move_right")
 	rotate(rot_direction * delta * rotate_speed)
@@ -30,3 +32,8 @@ func _physics_process(delta: float) -> void:
 func screen_wrap():
 	global_position.x = wrapf(global_position.x, 0, screen_size.x)
 	global_position.y = wrapf(global_position.y, 0, screen_size.y)
+
+func die():
+	player_died.emit()
+	queue_free()
+

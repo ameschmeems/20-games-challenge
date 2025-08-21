@@ -21,6 +21,7 @@ func _ready() -> void:
 	direction = direction.rotated(rotation)
 	speed = randf_range(100, 150)
 	scale *= size_scale_values[size]
+	body_entered.connect(on_body_entered)
 
 func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
@@ -33,3 +34,6 @@ func screen_wrap():
 func hit():
 	asteroid_hit.emit(size, global_position)
 	queue_free()
+
+func on_body_entered(body: CharacterBody2D):
+	body.die()
