@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name PacmanPlayer
 
-@export var speed: float = 300.0
+@export var speed: float = 250.0
 
 var next_movement_direction: Vector2 = Vector2.ZERO
 var next_rotation: float = 0.0

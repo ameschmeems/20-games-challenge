@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjivhxpsfbrh"]
+
+[ext_resource type="Script" path="res://pacman/scenes/teleport/pacman_teleport.gd" id="1_gniey"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ki0eg"]
+size = Vector2(2, 54)
+
+[node name="PacmanTeleport" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_gniey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ki0eg")
