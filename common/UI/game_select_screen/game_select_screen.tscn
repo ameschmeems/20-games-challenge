@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://btg3qpjnlm4yv"]
+[gd_scene load_steps=7 format=3 uid="uid://btg3qpjnlm4yv"]
 
 [ext_resource type="PackedScene" uid="uid://d1q8h10cbo3th" path="res://common/UI/game_select_panel/game_select_panel.tscn" id="1_x4bey"]
 [ext_resource type="PackedScene" uid="uid://blueyed0w1eoj" path="res://pong/scenes/main_menu/main_menu.tscn" id="2_ywcqi"]
 [ext_resource type="PackedScene" uid="uid://cwuh20el1nm28" path="res://breakout/scenes/arena/arena.tscn" id="3_ra4cx"]
 [ext_resource type="PackedScene" uid="uid://cyhuypwbm3g10" path="res://frogger/scenes/main/frogger_main.tscn" id="4_6bwt0"]
 [ext_resource type="PackedScene" uid="uid://c2ch6u3mbd2q0" path="res://asteroids/scenes/main/asteroids_main.tscn" id="5_6ijdd"]
+[ext_resource type="PackedScene" uid="uid://5h3nrentfbfg" path="res://pacman/scenes/main/pacman_main.tscn" id="6_nrmp2"]
 
 [node name="GameSelectScreen" type="Node"]
 
@@ -69,3 +70,15 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 title = "Asteroids"
 game_scene = ExtResource("5_6ijdd")
+
+[node name="MarginContainer5" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="GameSelectPanel" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer5" instance=ExtResource("1_x4bey")]
+layout_mode = 2
+title = "Pacman"
+game_scene = ExtResource("6_nrmp2")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl4amu5beel2a"]
+
+[ext_resource type="Texture2D" uid="uid://cbw5yuhnbqy41" path="res://pacman/assets/Pellet/Pellet_Large.png" id="1_ru6d8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agtwc"]
+size = Vector2(24, 24)
+
+[node name="PowerPellet" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ru6d8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_agtwc")

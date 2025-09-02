@@ -1,0 +1,1109 @@
+[gd_scene load_steps=18 format=4 uid="uid://5h3nrentfbfg"]
+
+[ext_resource type="Texture2D" uid="uid://tmwewhvjiw67" path="res://pacman/assets/Walls/wall_atlas.png" id="1_nbbr7"]
+[ext_resource type="PackedScene" uid="uid://dtoxqvfbfedar" path="res://pacman/scenes/player/pacman_player.tscn" id="2_envvk"]
+[ext_resource type="PackedScene" uid="uid://cl4amu5beel2a" path="res://pacman/scenes/power_pellet/power_pellet.tscn" id="3_1bu3c"]
+[ext_resource type="PackedScene" uid="uid://utpqnbval63x" path="res://pacman/scenes/pellet/pellet.tscn" id="3_y2ail"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6guxf"]
+vertices = PackedVector2Array(12, 1.5, -12, 1.5, -12, -1.5, 12, -1.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-12, -1.5, 12, -1.5, 12, 1.5, -12, 1.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_akocj"]
+vertices = PackedVector2Array(1.5, -1.5, 12, -1.5, 12, 1.5, -12, 1.5, -12, -1.5, -1.5, -1.5, 1.5, -12, -1.5, -12)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 3, 5), PackedInt32Array(6, 0, 5, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1.5, -12, 1.5, -12, 1.5, -1.5, 12, -1.5, 12, 1.5, -12, 1.5, -12, -1.5, -1.5, -1.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_eqbdi"]
+vertices = PackedVector2Array(12, -1.5, 12, 1.5, 1.5, 1.5, -12, -1.5, 1.5, 12, -1.5, 12, -1.5, 1.5, -12, 1.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(3, 2, 6), PackedInt32Array(3, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(12, -1.5, 12, 1.5, 1.5, 1.5, 1.5, 12, -1.5, 12, -1.5, 1.5, -12, 1.5, -12, -1.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_spari"]
+vertices = PackedVector2Array(1.5, -1.5, 12, -1.5, 12, 1.5, 1.5, 1.5, 1.5, 12, -1.5, 12, -1.5, 1.5, -1.5, -1.5, -12, 1.5, -12, -1.5, 1.5, -12, -1.5, -12)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6, 7), PackedInt32Array(6, 8, 9, 7), PackedInt32Array(10, 0, 7, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-12, -1.5, -1.5, -1.5, -1.5, -12, 1.5, -12, 1.5, -1.5, 12, -1.5, 12, 1.5, 1.5, 1.5, 1.5, 12, -1.5, 12, -1.5, 1.5, -12, 1.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hp3kr"]
+vertices = PackedVector2Array(1.5, 12, -1.5, 12, -1.5, -12, 1.5, -12)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1.5, -12, 1.5, -12, 1.5, 12, -1.5, 12)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mtlfu"]
+vertices = PackedVector2Array(12, -1.5, 12, 1.5, 1.5, 1.5, -1.5, -1.5, -1.5, 12, 1.5, 12)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1.5, -1.5, 12, -1.5, 12, 1.5, 1.5, 1.5, 1.5, 12, -1.5, 12)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qtm85"]
+vertices = PackedVector2Array(1.5, -1.5, 1.5, 12, -1.5, 12, -1.5, 1.5, -12, -1.5, -12, 1.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-12, -1.5, 1.5, -1.5, 1.5, 12, -1.5, 12, -1.5, 1.5, -12, 1.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jf606"]
+vertices = PackedVector2Array(1.5, 1.5, -12, 1.5, -12, -1.5, -1.5, -1.5, 1.5, -12, -1.5, -12)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-12, -1.5, -1.5, -1.5, -1.5, -12, 1.5, -12, 1.5, 1.5, -12, 1.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_341rc"]
+vertices = PackedVector2Array(1.5, -1.5, 12, -1.5, 12, 1.5, -1.5, 1.5, -1.5, -12, 1.5, -12)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1.5, -12, 1.5, -12, 1.5, -1.5, 12, -1.5, 12, 1.5, -1.5, 1.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7j8ht"]
+vertices = PackedVector2Array(1.5, -1.5, 12, -1.5, 12, 1.5, 1.5, 1.5, 1.5, 12, -1.5, 12, -1.5, -12, 1.5, -12)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6), PackedInt32Array(7, 0, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1.5, -12, 1.5, -12, 1.5, -1.5, 12, -1.5, 12, 1.5, 1.5, 1.5, 1.5, 12, -1.5, 12)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qbdre"]
+vertices = PackedVector2Array(1.5, -12, 1.5, 12, -1.5, 12, -1.5, 1.5, -12, 1.5, -12, -1.5, -1.5, -1.5, -1.5, -12)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6), PackedInt32Array(0, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1.5, -12, 1.5, -12, 1.5, 12, -1.5, 12, -1.5, 1.5, -12, 1.5, -12, -1.5, -1.5, -1.5)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iljdt"]
+texture = ExtResource("1_nbbr7")
+texture_region_size = Vector2i(32, 32)
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, 0, 12, 0, 12, 12, -12, 12)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, 0, 12, 0, 12, -12, -12, -12)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, 12, 0, 12, 0, -12, -12, -12)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 12, 0, 12, 0, -12, 12, -12)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, 12, 0, 12, 0, 0, -12, 0)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 12, 0, 12, 0, 0, 12, 0)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, -12, 0, 0, 0, 0, -12)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 0, 0, 0, 0, -12, 12, -12)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 0, 12, 12, -12, 12, -12, 0, 0, 0, 0, -12, 12, -12)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 12, 0, 12, 0, 0, -12, 0, -12, -12, 12, -12)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 0, 12, 12, -12, 12, -12, -12, 0, -12, 0, 0)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 12, -12, 12, -12, -12, 12, -12, 12, 0, 0, 0)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 12, -12, 12, -12, 0, 0, 0)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 12, 12, 12, 12, 0, 0, 0)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, 0, -12, -12, 0, -12, 0, 0)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 0, 12, -12, 0, -12, 0, 0)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 0, 12, 12, -12, 12, -12, 0)
+3:2/next_alternative_id = 12
+3:2/0 = 0
+3:2/1 = 1
+3:2/1/navigation_layer_0/polygon = SubResource("NavigationPolygon_6guxf")
+3:2/2 = 2
+3:2/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_spari")
+3:2/3 = 3
+3:2/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_hp3kr")
+3:2/4 = 4
+3:2/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_mtlfu")
+3:2/5 = 5
+3:2/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_qtm85")
+3:2/6 = 6
+3:2/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_jf606")
+3:2/7 = 7
+3:2/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_341rc")
+3:2/8 = 8
+3:2/8/navigation_layer_0/polygon = SubResource("NavigationPolygon_7j8ht")
+3:2/9 = 9
+3:2/9/navigation_layer_0/polygon = SubResource("NavigationPolygon_qbdre")
+3:2/10 = 10
+3:2/10/navigation_layer_0/polygon = SubResource("NavigationPolygon_akocj")
+3:2/11 = 11
+3:2/11/navigation_layer_0/polygon = SubResource("NavigationPolygon_eqbdi")
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, -12, 0, -12, -12, 12, -12, 12, 12, 0, 12)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 0, 0, 0, 0, 12, -12, 12)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -12, 12, -12, 12, 12, -12, 12, -12, 0, 0, 0)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 0, -12, 0, 0, 12, 0, 12, 12, -12, 12)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, -12, 12, 12, 0, 12, 0, -12)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, -12, 12, 0, 12, 0, -12)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, -12, 0, 12, 0, 12, -12)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, 12, -12, 0, 12, 0, 12, 12)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 0, -12, 12, -12, 12, 12, -12, 12, -12, 0)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, 0, 12, 0, 0, -12, 0)
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 0, -12, 0, 0, 12, 0, 12, 12, -12, 12)
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 0, 0, 0, 0, 12, -12, 12)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 0, 0, 0, 0, 12, -12, 12)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, 0, 12, 0, 0, -12, 0)
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_n5o7l"]
+tile_size = Vector2i(24, 24)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_iljdt")
+
+[node name="PacmanMain" type="Node"]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.812, 0.812)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
+texture_filter = 1
+scale = Vector2(1.125, 1.125)
+tile_map_data = PackedByteArray("AAD//wEAAAACAAMAAAAAAAEAAAACAAMAAAD+/wEAAAACAAMAAAABAAEAAAACAAMAAAACAAEAAAACAAMAAAD9/wEAAAACAAMAAAD8/wEAAAABAAIAAAADAAEAAAAAAAIAAAD8/wAAAAAAAAMAAAD8////AAAAAAMAAAD8//7/AAAAAAMAAAADAAAAAAABAAMAAAADAP//AAABAAMAAAADAP7/AAABAAMAAAD8//3/AAAHAAEAAAADAP3/AAAGAAEAAAD9//3/AAADAAMAAAD+//3/AAADAAMAAAACAP3/AAADAAMAAAABAP3/AAADAAMAAAD///3/AAACAAIAAAAAAP3/AAACAAIAAAD9//f/AAACAAAAAAD+//f/AAACAAAAAAD///f/AAACAAAAAAAAAPf/AAACAAAAAAABAPf/AAACAAAAAAACAPf/AAACAAAAAAADAPf/AAAGAAAAAAADAPj/AAAAAAEAAAD8//f/AAAHAAAAAAD8//j/AAABAAEAAAD///v/AAABAAEAAAAAAPv/AAAAAAEAAAD///r/AAAFAAAAAAD///n/AAAFAAAAAAAAAPr/AAAEAAAAAAAAAPn/AAAEAAAAAAAAAPj/AAAFAAEAAAABAPj/AAADAAAAAAACAPj/AAADAAAAAAD9//j/AAADAAAAAAD+//j/AAADAAAAAAD///j/AAADAAEAAAACAPv/AAABAAEAAAACAPr/AAAHAAAAAAADAPr/AAACAAAAAAAEAPr/AAACAAAAAAADAPv/AAADAAAAAAAEAPv/AAADAAAAAAAFAPv/AAADAAEAAAAFAPz/AAAFAAAAAAAFAP3/AAAFAAAAAAAFAP7/AAABAAEAAAAGAP7/AAAAAAEAAAAGAP3/AAAEAAAAAAAGAPz/AAAEAAAAAAAGAPv/AAAEAAAAAAAGAPr/AAAEAAAAAAAGAPn/AAAEAAAAAAAGAPj/AAAEAAAAAAAGAPf/AAAGAAAAAAAFAPf/AAAHAAAAAAAFAPj/AAAFAAAAAAAFAPn/AAAFAAAAAAAFAPr/AAACAAEAAAD9//r/AAAGAAAAAAD8//r/AAACAAAAAAD7//r/AAACAAAAAAD8//v/AAADAAAAAAD7//v/AAADAAAAAAD6//r/AAAEAAEAAAD6//v/AAAFAAEAAAD6//z/AAAEAAAAAAD6//3/AAAEAAAAAAD6//n/AAAEAAAAAAD6//j/AAAEAAAAAAD6//f/AAAGAAAAAAD5//f/AAAHAAAAAAD6//7/AAAAAAEAAAD5//7/AAABAAEAAAD5//3/AAAFAAAAAAD5//z/AAAFAAAAAAD5//v/AAAFAAAAAAD5//r/AAAFAAAAAAD5//n/AAAFAAAAAAD5//j/AAAFAAAAAAAAAPX/AAAAAAEAAAD///X/AAABAAEAAAAAAPT/AAAEAAAAAAAAAPP/AAAEAAAAAAAAAPL/AAAEAAAAAAD///T/AAAFAAAAAAD///P/AAAFAAAAAAD///L/AAAFAAAAAAD///H/AAABAAQAAAAAAPH/AAAAAAQAAAANAP7/AAACAAMAAAAMAP7/AAACAAMAAAALAP7/AAACAAMAAAAKAP7/AAACAAMAAAAJAP7/AAACAAMAAAAJAAAAAAADAAMAAAAKAAAAAAADAAMAAAALAAAAAAADAAMAAAAMAAAAAAADAAMAAAANAAAAAAADAAMAAAAIAAAAAAAHAAEAAAAIAP7/AAABAAIAAAAIAP3/AAAAAAMAAAAIAPz/AAAAAAMAAAAIAPv/AAAAAAMAAAAIAPr/AAAHAAEAAAAJAPr/AAADAAMAAAAKAPr/AAADAAMAAAALAPr/AAADAAMAAAAMAPr/AAADAAMAAAANAPr/AAAGAAIAAAANAPj/AAAAAAMAAAANAPf/AAAAAAMAAAANAPb/AAAAAAMAAAANAPX/AAAAAAMAAAANAPT/AAAAAAMAAAANAPP/AAAAAAMAAAANAPL/AAAAAAMAAAANAPH/AAAEAAIAAAAMAPH/AAACAAMAAAALAPH/AAACAAMAAAAJAPH/AAACAAMAAAAKAPH/AAACAAMAAAAIAPH/AAACAAMAAAAHAPH/AAACAAMAAAAGAPH/AAACAAMAAAAFAPH/AAACAAMAAAAEAPH/AAACAAMAAAACAPH/AAACAAMAAAADAPH/AAACAAMAAAABAPH/AAACAAMAAAAJAPj/AAADAAAAAAAKAPj/AAADAAAAAAAJAPf/AAACAAAAAAAKAPf/AAACAAAAAAAIAPj/AAABAAEAAAAIAPf/AAAHAAAAAAALAPf/AAAGAAAAAAALAPj/AAAAAAEAAAAIAPP/AAAHAAAAAAALAPP/AAAGAAAAAAALAPX/AAAAAAEAAAAIAPX/AAABAAEAAAAJAPP/AAACAAAAAAAKAPP/AAACAAAAAAAJAPX/AAADAAAAAAAKAPX/AAADAAAAAAALAPT/AAAEAAAAAAAIAPT/AAAFAAAAAAACAPP/AAAHAAAAAAAGAPP/AAAGAAAAAAACAPX/AAABAAEAAAAGAPX/AAAAAAEAAAAGAPT/AAAEAAAAAAACAPT/AAAFAAAAAAADAPP/AAACAAAAAAAEAPP/AAACAAAAAAAFAPP/AAACAAAAAAAEAPX/AAADAAAAAAADAPX/AAADAAAAAAAFAPX/AAADAAAAAADy/wAAAAADAAMAAADz/wAAAAADAAMAAAD0/wAAAAADAAMAAAD1/wAAAAADAAMAAAD2/wAAAAADAAMAAADy//7/AAACAAMAAADz//7/AAACAAMAAAD0//7/AAACAAMAAAD1//7/AAACAAMAAAD2//7/AAACAAMAAAD3/wAAAAAGAAEAAAD3//7/AAAAAAIAAAD3//3/AAABAAMAAAD3//z/AAABAAMAAAD3//v/AAABAAMAAAD3//r/AAAGAAEAAAD2//r/AAADAAMAAAD1//r/AAADAAMAAAD0//r/AAADAAMAAADz//r/AAADAAMAAADy//r/AAAHAAIAAADy//n/AAABAAMAAADy//j/AAABAAMAAADy//f/AAABAAMAAADy//b/AAABAAMAAADy//X/AAABAAMAAADy//T/AAABAAMAAADy//P/AAABAAMAAADy//L/AAABAAMAAADy//H/AAAFAAIAAADz//H/AAACAAMAAAD0//H/AAACAAMAAAD1//H/AAACAAMAAAD2//H/AAACAAMAAAD3//H/AAACAAMAAAD4//H/AAACAAMAAAD5//H/AAACAAMAAAD6//H/AAACAAMAAAD7//H/AAACAAMAAAD8//H/AAACAAMAAAD9//H/AAACAAMAAAD+//H/AAACAAMAAAD1//j/AAADAAAAAAD2//j/AAADAAAAAAD1//f/AAACAAAAAAD2//f/AAACAAAAAAD0//f/AAAHAAAAAAD3//f/AAAGAAAAAAD3//j/AAAAAAEAAAD0//j/AAABAAEAAAD0//X/AAABAAEAAAD3//X/AAAAAAEAAAD3//P/AAAGAAAAAAD0//P/AAAHAAAAAAD2//P/AAACAAAAAAD1//P/AAACAAAAAAD3//T/AAAEAAAAAAD0//T/AAAFAAAAAAD1//X/AAADAAAAAAD2//X/AAADAAAAAAD5//T/AAAFAAAAAAD9//T/AAAEAAAAAAD5//P/AAAHAAAAAAD9//P/AAAGAAAAAAD5//X/AAABAAEAAAD6//X/AAADAAAAAAD7//X/AAADAAAAAAD8//X/AAADAAAAAAD7//P/AAACAAAAAAD6//P/AAACAAAAAAD8//P/AAACAAAAAAD5/wAAAAAHAAAAAAD6/wAAAAAGAAAAAAD6/wEAAAAEAAAAAAD6/wIAAAAEAAAAAAD6/wMAAAAEAAAAAAD5/wEAAAAFAAAAAAD5/wIAAAAFAAAAAAD5/wMAAAAFAAAAAAD5/wQAAAABAAEAAAD6/wQAAAAAAAEAAAAGAAQAAAAAAAEAAAAFAAQAAAABAAEAAAAGAAAAAAAGAAAAAAAFAAAAAAAHAAAAAAAGAAEAAAAEAAAAAAAGAAIAAAAEAAAAAAAGAAMAAAAEAAAAAAAFAAEAAAAFAAAAAAAFAAIAAAAFAAAAAAAFAAMAAAAFAAAAAAAIAAEAAAAAAAMAAAAIAAIAAAAAAAMAAAAIAAMAAAAAAAMAAAD3/wEAAAABAAMAAAD3/wIAAAABAAMAAAD3/wMAAAABAAMAAAAIAAQAAAABAAIAAAD3/wQAAAAAAAIAAAD8/wMAAAAHAAAAAAD8/wQAAAABAAEAAAD9/wMAAAACAAAAAAD+/wMAAAACAAAAAAD//wMAAAACAAAAAAAAAAMAAAACAAAAAAABAAMAAAACAAAAAAACAAMAAAACAAAAAAADAAMAAAAGAAAAAAADAAQAAAAAAAEAAAACAAQAAAADAAAAAAABAAQAAAADAAAAAAD9/wQAAAADAAAAAAD+/wQAAAADAAAAAAD//wQAAAADAAEAAAAAAAQAAAAFAAEAAAAAAAUAAAAEAAAAAAAAAAYAAAAEAAAAAAD//wUAAAAFAAAAAAD//wYAAAAFAAAAAAD//wcAAAABAAEAAAAAAAcAAAAAAAEAAAAJAAQAAAACAAMAAAAKAAQAAAACAAMAAAALAAQAAAACAAMAAAAMAAQAAAACAAMAAAD2/wQAAAACAAMAAAD1/wQAAAACAAMAAAD0/wQAAAACAAMAAADz/wQAAAACAAMAAADy/wQAAAAFAAIAAAANAAQAAAAEAAIAAAANAAUAAAAAAAMAAAANAAYAAAAAAAMAAAANAAcAAAAAAAMAAAANAAgAAAAAAAMAAADy/wUAAAABAAMAAADy/wYAAAABAAMAAADy/wcAAAABAAMAAADy/wgAAAABAAMAAADy/wkAAAAGAAMAAADy/woAAAAHAAMAAAANAAoAAAAFAAMAAAANAAkAAAAEAAMAAADz/wkAAAACAAAAAAAMAAkAAAACAAAAAAAMAAoAAAADAAAAAADz/woAAAADAAAAAAD0/wkAAAAGAAAAAAD0/woAAAAAAAEAAAALAAkAAAAHAAAAAAALAAoAAAABAAEAAADy/wsAAAABAAMAAADy/wwAAAABAAMAAADy/w0AAAABAAMAAADy/w4AAAABAAMAAAANAAsAAAAAAAMAAAANAAwAAAAAAAMAAAANAA0AAAAAAAMAAAANAA4AAAAAAAMAAAANAA8AAAAGAAIAAADy/w8AAAAHAAIAAADz/w8AAAADAAMAAAD0/w8AAAADAAMAAAD1/w8AAAADAAMAAAD2/w8AAAADAAMAAAD4/w8AAAADAAMAAAD3/w8AAAADAAMAAAD5/w8AAAADAAMAAAD6/w8AAAADAAMAAAD7/w8AAAADAAMAAAD8/w8AAAADAAMAAAD9/w8AAAADAAMAAAD+/w8AAAADAAMAAAD//w8AAAADAAMAAAAAAA8AAAADAAMAAAABAA8AAAADAAMAAAACAA8AAAADAAMAAAADAA8AAAADAAMAAAAEAA8AAAADAAMAAAAFAA8AAAADAAMAAAAGAA8AAAADAAMAAAAHAA8AAAADAAMAAAAIAA8AAAADAAMAAAAJAA8AAAADAAMAAAAKAA8AAAADAAMAAAALAA8AAAADAAMAAAAMAA8AAAADAAMAAAD0/wcAAAABAAEAAAD0/wYAAAAHAAAAAAD1/wYAAAACAAAAAAD2/wYAAAACAAAAAAD3/wYAAAAGAAAAAAD3/wcAAAAEAAAAAAD3/wgAAAAEAAAAAAD3/wkAAAAEAAAAAAD2/woAAAABAAEAAAD3/woAAAAAAAEAAAD2/wkAAAAFAAAAAAD2/wgAAAAFAAAAAAD1/wcAAAADAAAAAAD2/wcAAAADAAEAAAALAAYAAAAGAAAAAAALAAcAAAAAAAEAAAAKAAYAAAACAAAAAAAJAAYAAAACAAAAAAAKAAcAAAADAAAAAAAIAAYAAAAHAAAAAAAIAAcAAAAFAAAAAAAIAAgAAAAFAAAAAAAIAAkAAAAFAAAAAAAIAAoAAAABAAEAAAAJAAoAAAAAAAEAAAAJAAkAAAAEAAAAAAAJAAgAAAAEAAAAAAAJAAcAAAAFAAEAAAD5/wcAAAABAAEAAAD9/wcAAAAAAAEAAAD5/wYAAAAHAAAAAAD9/wYAAAAGAAAAAAD6/wYAAAACAAAAAAD7/wYAAAACAAAAAAD8/wYAAAACAAAAAAD6/wcAAAADAAAAAAD7/wcAAAADAAAAAAD8/wcAAAADAAAAAAACAAYAAAAHAAAAAAACAAcAAAABAAEAAAADAAYAAAACAAAAAAADAAcAAAADAAAAAAAEAAYAAAACAAAAAAAEAAcAAAADAAAAAAAFAAYAAAACAAAAAAAFAAcAAAADAAAAAAAGAAYAAAAGAAAAAAAGAAcAAAAAAAEAAAD0/w0AAAABAAEAAAD0/wwAAAAHAAAAAAD1/w0AAAADAAAAAAD2/w0AAAADAAAAAAD3/w0AAAADAAAAAAD4/w0AAAADAAAAAAD5/w0AAAADAAAAAAD6/w0AAAADAAAAAAD7/w0AAAADAAAAAAD8/w0AAAADAAAAAAD9/w0AAAAAAAEAAAD9/wwAAAAGAAAAAAD8/wwAAAACAAAAAAD7/wwAAAACAAAAAAD6/wwAAAAEAAEAAAD5/wwAAAACAAEAAAD6/wsAAAAEAAAAAAD6/woAAAAEAAAAAAD5/woAAAAFAAAAAAD5/wsAAAAFAAAAAAD6/wkAAAAGAAAAAAD5/wkAAAAHAAAAAAD4/wwAAAACAAAAAAD3/wwAAAACAAAAAAD2/wwAAAACAAAAAAD1/wwAAAACAAAAAAD//w0AAAABAAEAAAAAAA0AAAAAAAEAAAD//wwAAAAFAAAAAAD//wsAAAAFAAAAAAAAAAwAAAAEAAAAAAAAAAsAAAAEAAAAAAD//woAAAADAAEAAAAAAAoAAAAFAAEAAAD+/woAAAADAAAAAAD9/woAAAADAAAAAAABAAoAAAADAAAAAAACAAoAAAADAAAAAAD8/woAAAABAAEAAAD8/wkAAAAHAAAAAAADAAoAAAAAAAEAAAADAAkAAAAGAAAAAAD9/wkAAAACAAAAAAD+/wkAAAACAAAAAAD//wkAAAACAAAAAAAAAAkAAAACAAAAAAABAAkAAAACAAAAAAACAAkAAAACAAAAAAACAA0AAAABAAEAAAACAAwAAAAHAAAAAAALAA0AAAAAAAEAAAALAAwAAAAGAAAAAAAGAAkAAAAGAAAAAAAFAAkAAAAHAAAAAAAFAAwAAAACAAEAAAAGAAwAAAAEAAEAAAAGAAoAAAAEAAAAAAAGAAsAAAAEAAAAAAAFAAoAAAAFAAAAAAAFAAsAAAAFAAAAAAAHAAwAAAACAAAAAAAIAAwAAAACAAAAAAAJAAwAAAACAAAAAAAKAAwAAAACAAAAAAAEAAwAAAACAAAAAAADAAwAAAACAAAAAAADAA0AAAADAAAAAAAEAA0AAAADAAAAAAAFAA0AAAADAAAAAAAGAA0AAAADAAAAAAAHAA0AAAADAAAAAAAIAA0AAAADAAAAAAAJAA0AAAADAAAAAAAKAA0AAAADAAAAAAD9//X/AAAAAAEAAAD9//v/AAAAAAEAAAANAPn/AAAAAAMAAAD4////AAADAAIAAgAHAP//AAADAAIAAgAHAPb/AAADAAIAAgD4//b/AAADAAIAAgD4/wUAAAADAAIAAgAHAAUAAAADAAIAAgD4/wQAAAADAAIAAwD4/wMAAAADAAIAAwD4/wIAAAADAAIAAwD4/wEAAAADAAIAAwD4/wAAAAADAAIAAwD4//7/AAADAAIAAwD4//3/AAADAAIAAwD4//z/AAADAAIAAwD4//v/AAADAAIAAwD4//r/AAADAAIAAwD4//j/AAADAAIAAwD4//f/AAADAAIAAwD4//X/AAADAAIAAwD4//T/AAADAAIAAwD4//P/AAADAAIAAwD+//X/AAADAAIAAwD+//T/AAADAAIAAwD+//P/AAADAAIAAwABAPP/AAADAAIAAwABAPT/AAADAAIAAwABAPX/AAADAAIAAwAHAPX/AAADAAIAAwAHAPT/AAADAAIAAwAHAPP/AAADAAIAAwAMAPP/AAADAAIAAwAMAPT/AAADAAIAAwAMAPX/AAADAAIAAwAMAPf/AAADAAIAAwAMAPj/AAADAAIAAwDz//j/AAADAAIAAwDz//f/AAADAAIAAwDz//X/AAADAAIAAwDz//T/AAADAAIAAwDz//P/AAADAAIAAwD7//j/AAADAAIAAwD7//f/AAADAAIAAwD+//r/AAADAAIAAwD+//v/AAADAAIAAwABAPr/AAADAAIAAwABAPv/AAADAAIAAwAEAPf/AAADAAIAAwAEAPj/AAADAAIAAwAHAPf/AAADAAIAAwAHAPj/AAADAAIAAwAHAPr/AAADAAIAAwAHAPv/AAADAAIAAwAHAPz/AAADAAIAAwAHAP3/AAADAAIAAwAHAP7/AAADAAIAAwAEAP3/AAADAAIAAwAEAP7/AAADAAIAAwD7//3/AAADAAIAAwD7//7/AAADAAIAAwD7/wAAAAADAAIAAwD7/wEAAAADAAIAAwD7/wMAAAADAAIAAwD7/wQAAAADAAIAAwAEAAQAAAADAAIAAwAEAAMAAAADAAIAAwAEAAEAAAADAAIAAwAEAAAAAAADAAIAAwAHAAAAAAADAAIAAwAHAAEAAAADAAIAAwAHAAIAAAADAAIAAwAHAAMAAAADAAIAAwAHAAQAAAADAAIAAwAMAAYAAAADAAIAAwAMAAcAAAADAAIAAwAHAAYAAAADAAIAAwAHAAcAAAADAAIAAwD4/wYAAAADAAIAAwD4/wcAAAADAAIAAwDz/wYAAAADAAIAAwDz/wcAAAADAAIAAwD+/wYAAAADAAIAAwD+/wcAAAADAAIAAwABAAYAAAADAAIAAwABAAcAAAADAAIAAwD1/wkAAAADAAIAAwD1/woAAAADAAIAAwD4/wkAAAADAAIAAwD4/woAAAADAAIAAwD7/wkAAAADAAIAAwD7/woAAAADAAIAAwAEAAkAAAADAAIAAwAEAAoAAAADAAIAAwAHAAkAAAADAAIAAwAHAAoAAAADAAIAAwAKAAkAAAADAAIAAwAKAAoAAAADAAIAAwDz/wwAAAADAAIAAwDz/w0AAAADAAIAAwD+/wwAAAADAAIAAwD+/w0AAAADAAIAAwABAA0AAAADAAIAAwABAAwAAAADAAIAAwAMAAwAAAADAAIAAwAMAA0AAAADAAIAAwD0/w4AAAADAAIAAQD1/w4AAAADAAIAAQD2/w4AAAADAAIAAQD3/w4AAAADAAIAAQD4/w4AAAADAAIAAQD5/w4AAAADAAIAAQD6/w4AAAADAAIAAQD7/w4AAAADAAIAAQD8/w4AAAADAAIAAQD9/w4AAAADAAIAAQD//w4AAAADAAIAAQAAAA4AAAADAAIAAQACAA4AAAADAAIAAQADAA4AAAADAAIAAQAEAA4AAAADAAIAAQAFAA4AAAADAAIAAQAGAA4AAAADAAIAAQAHAA4AAAADAAIAAQAIAA4AAAADAAIAAQAJAA4AAAADAAIAAQAKAA4AAAADAAIAAQALAA4AAAADAAIAAQALAAsAAAADAAIAAQAJAAsAAAADAAIAAQAIAAsAAAADAAIAAQACAAsAAAADAAIAAQADAAsAAAADAAIAAQD9/wsAAAADAAIAAQD8/wsAAAADAAIAAQD3/wsAAAADAAIAAQD2/wsAAAADAAIAAQD0/wsAAAADAAIAAQD0/wUAAAADAAIAAQD1/wUAAAADAAIAAQD2/wUAAAADAAIAAQD5/wUAAAADAAIAAQD6/wUAAAADAAIAAQD8/wUAAAADAAIAAQD9/wUAAAADAAIAAQACAAUAAAADAAIAAQADAAUAAAADAAIAAQAFAAUAAAADAAIAAQAGAAUAAAADAAIAAQAJAAUAAAADAAIAAQAKAAUAAAADAAIAAQALAAUAAAADAAIAAQAIAP//AAADAAIAAQAJAP//AAADAAIAAQAKAP//AAADAAIAAQALAP//AAADAAIAAQAMAP//AAADAAIAAQANAP//AAADAAIAAQDy////AAADAAIAAQDz////AAADAAIAAQD0////AAADAAIAAQD1////AAADAAIAAQD2////AAADAAIAAQD3////AAADAAIAAQD0//n/AAADAAIAAQD1//n/AAADAAIAAQD2//n/AAADAAIAAQD3//n/AAADAAIAAQD0//b/AAADAAIAAQD1//b/AAADAAIAAQD2//b/AAADAAIAAQD3//b/AAADAAIAAQD0//L/AAADAAIAAQD1//L/AAADAAIAAQD2//L/AAADAAIAAQD3//L/AAADAAIAAQD5//L/AAADAAIAAQD6//L/AAADAAIAAQD7//L/AAADAAIAAQD8//L/AAADAAIAAQD9//L/AAADAAIAAQACAPL/AAADAAIAAQADAPL/AAADAAIAAQAEAPL/AAADAAIAAQAFAPL/AAADAAIAAQAGAPL/AAADAAIAAQAIAPL/AAADAAIAAQAJAPL/AAADAAIAAQAKAPL/AAADAAIAAQALAPL/AAADAAIAAQAJAPb/AAADAAIAAQAIAPb/AAADAAIAAQAKAPb/AAADAAIAAQALAPb/AAADAAIAAQAIAPn/AAADAAIAAQAJAPn/AAADAAIAAQAKAPn/AAADAAIAAQALAPn/AAADAAIAAQD5//b/AAADAAIAAQD6//b/AAADAAIAAQD8//b/AAADAAIAAQD9//b/AAADAAIAAQD///b/AAADAAIAAQAAAPb/AAADAAIAAQACAPb/AAADAAIAAQADAPb/AAADAAIAAQAFAPb/AAADAAIAAQAGAPb/AAADAAIAAQD8//z/AAADAAIAAQD9//z/AAADAAIAAQD///z/AAADAAIAAQAAAPz/AAADAAIAAQACAPz/AAADAAIAAQADAPz/AAADAAIAAQD8//n/AAADAAIAAQD9//n/AAADAAIAAQACAPn/AAADAAIAAQADAPn/AAADAAIAAQD5////AAADAAIAAQD6////AAADAAIAAQAGAP//AAADAAIAAQAFAP//AAADAAIAAQD8/wIAAAADAAIAAQD9/wIAAAADAAIAAQD+/wIAAAADAAIAAQD//wIAAAADAAIAAQAAAAIAAAADAAIAAQABAAIAAAADAAIAAQACAAIAAAADAAIAAQADAAIAAAADAAIAAQD5/wgAAAADAAIAAQD6/wgAAAADAAIAAQD8/wgAAAADAAIAAQD9/wgAAAADAAIAAQD//wgAAAADAAIAAQAAAAgAAAADAAIAAQACAAgAAAADAAIAAQADAAgAAAADAAIAAQAFAAgAAAADAAIAAQAGAAgAAAADAAIAAQDz//L/AAADAAIABAABAPL/AAADAAIABAABAPn/AAADAAIABADz/wUAAAADAAIABAABAAUAAAADAAIABADz/wsAAAADAAIABAABAAsAAAADAAIABAALAAgAAAADAAIAAQD0/wgAAAADAAIAAQD7//z/AAADAAIABAD+//L/AAADAAIABQAMAPL/AAADAAIABQD+//n/AAADAAIABQAEAPz/AAADAAIABQAMAAUAAAADAAIABQD+/wUAAAADAAIABQD1/wgAAAADAAIABQAKAAgAAAADAAIABAAMAAsAAAADAAIABQD+/wsAAAADAAIABQAMAA4AAAADAAIABgAMAAgAAAADAAIABgD4/wsAAAADAAIABgAEAAsAAAADAAIABgD3/wUAAAADAAIAAQAIAAUAAAADAAIAAQAEAPn/AAADAAIABgAMAPn/AAADAAIABgDz//n/AAADAAIABwD7//n/AAADAAIABwDz/wgAAAADAAIABwDz/w4AAAADAAIABwD7/wsAAAADAAIABwAHAAsAAAADAAIABwD4/wgAAAADAAIACAD7/wIAAAADAAIACAAEAP//AAADAAIACAAHAPn/AAADAAIACADz//b/AAADAAIACAAMAPb/AAADAAIACQD4//n/AAADAAIACQD7////AAADAAIACQAEAAIAAAADAAIACQAHAAgAAAADAAIACQD+/w4AAAADAAIACgABAA4AAAADAAIACgD1/wsAAAADAAIACgAKAAsAAAADAAIACgABAAgAAAADAAIACgD+/wgAAAADAAIACgD7/wUAAAADAAIACgAEAAUAAAADAAIACgD+//z/AAADAAIACgABAPz/AAADAAIACgD+//b/AAADAAIACgABAPb/AAADAAIACgD4//L/AAADAAIACwAHAPL/AAADAAIACwD7//b/AAADAAIACwAEAPb/AAADAAIACwD7/wgAAAADAAIACwAEAAgAAAADAAIACwA=")
+tile_set = SubResource("TileSet_n5o7l")
+
+[node name="PacmanPlayer" parent="." instance=ExtResource("2_envvk")]
+position = Vector2(0, 64)
+scale = Vector2(3.7, 3.7)
+
+[node name="Pellets" type="Node2D" parent="."]
+z_index = -1
+
+[node name="PowerPellet" parent="Pellets" instance=ExtResource("3_1bu3c")]
+position = Vector2(-338, -311)
+
+[node name="PowerPellet2" parent="Pellets" instance=ExtResource("3_1bu3c")]
+position = Vector2(337, -311)
+
+[node name="PowerPellet3" parent="Pellets" instance=ExtResource("3_1bu3c")]
+position = Vector2(337, 229)
+
+[node name="PowerPellet4" parent="Pellets" instance=ExtResource("3_1bu3c")]
+position = Vector2(-338, 229)
+
+[node name="Pellet" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, 148)
+
+[node name="Pellet2" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, 175)
+
+[node name="Pellet3" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, 202)
+
+[node name="Pellet4" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-311, 148)
+
+[node name="Pellet5" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-284, 148)
+
+[node name="Pellet6" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-257, 148)
+
+[node name="Pellet7" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-230, 148)
+
+[node name="Pellet8" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 148)
+
+[node name="Pellet9" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-176, 148)
+
+[node name="Pellet10" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-149, 148)
+
+[node name="Pellet11" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, 148)
+
+[node name="Pellet12" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-95, 148)
+
+[node name="Pellet13" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-68, 148)
+
+[node name="Pellet14" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, 148)
+
+[node name="Pellet15" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, 175)
+
+[node name="Pellet16" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, 202)
+
+[node name="Pellet17" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, 229)
+
+[node name="Pellet18" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-68, 229)
+
+[node name="Pellet19" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-95, 229)
+
+[node name="Pellet20" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, 229)
+
+[node name="Pellet21" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-149, 229)
+
+[node name="Pellet22" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-176, 229)
+
+[node name="Pellet23" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 229)
+
+[node name="Pellet24" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 256)
+
+[node name="Pellet25" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 283)
+
+[node name="Pellet26" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 310)
+
+[node name="Pellet27" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-230, 310)
+
+[node name="Pellet28" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-257, 310)
+
+[node name="Pellet29" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-284, 310)
+
+[node name="Pellet30" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-311, 310)
+
+[node name="Pellet31" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, 310)
+
+[node name="Pellet32" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, 337)
+
+[node name="Pellet33" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, 364)
+
+[node name="Pellet34" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, 391)
+
+[node name="Pellet35" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-311, 391)
+
+[node name="Pellet36" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-257, 391)
+
+[node name="Pellet37" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-284, 391)
+
+[node name="Pellet38" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-230, 391)
+
+[node name="Pellet39" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 391)
+
+[node name="Pellet40" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-176, 391)
+
+[node name="Pellet41" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-149, 391)
+
+[node name="Pellet42" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, 391)
+
+[node name="Pellet43" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-95, 391)
+
+[node name="Pellet44" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-68, 391)
+
+[node name="Pellet45" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, 391)
+
+[node name="Pellet46" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, 364)
+
+[node name="Pellet47" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, 337)
+
+[node name="Pellet48" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, 310)
+
+[node name="Pellet49" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-68, 310)
+
+[node name="Pellet50" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-95, 310)
+
+[node name="Pellet51" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, 310)
+
+[node name="Pellet52" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, 283)
+
+[node name="Pellet53" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, 256)
+
+[node name="Pellet54" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 202)
+
+[node name="Pellet55" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 175)
+
+[node name="Pellet56" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-284, 283)
+
+[node name="Pellet57" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-284, 256)
+
+[node name="Pellet58" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-284, 229)
+
+[node name="Pellet59" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-311, 229)
+
+[node name="Pellet60" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-14, 391)
+
+[node name="Pellet61" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(13, 391)
+
+[node name="Pellet62" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, 391)
+
+[node name="Pellet63" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(67, 391)
+
+[node name="Pellet64" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(94, 391)
+
+[node name="Pellet65" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, 391)
+
+[node name="Pellet66" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(148, 391)
+
+[node name="Pellet67" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(175, 391)
+
+[node name="Pellet68" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 391)
+
+[node name="Pellet69" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(229, 391)
+
+[node name="Pellet70" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(256, 391)
+
+[node name="Pellet71" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(283, 391)
+
+[node name="Pellet72" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(310, 391)
+
+[node name="Pellet73" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, 391)
+
+[node name="Pellet74" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, 364)
+
+[node name="Pellet75" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, 337)
+
+[node name="Pellet76" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, 310)
+
+[node name="Pellet77" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(310, 310)
+
+[node name="Pellet78" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(283, 310)
+
+[node name="Pellet79" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(256, 310)
+
+[node name="Pellet80" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(229, 310)
+
+[node name="Pellet81" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 310)
+
+[node name="Pellet82" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 283)
+
+[node name="Pellet83" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 256)
+
+[node name="Pellet84" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 229)
+
+[node name="Pellet85" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(175, 229)
+
+[node name="Pellet86" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(148, 229)
+
+[node name="Pellet87" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, 229)
+
+[node name="Pellet88" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(94, 229)
+
+[node name="Pellet89" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(67, 229)
+
+[node name="Pellet90" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, 229)
+
+[node name="Pellet91" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(13, 229)
+
+[node name="Pellet92" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-14, 229)
+
+[node name="Pellet93" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, 256)
+
+[node name="Pellet94" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, 283)
+
+[node name="Pellet95" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, 310)
+
+[node name="Pellet96" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(94, 310)
+
+[node name="Pellet97" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(67, 310)
+
+[node name="Pellet98" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, 310)
+
+[node name="Pellet99" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, 337)
+
+[node name="Pellet100" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, 364)
+
+[node name="Pellet101" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 202)
+
+[node name="Pellet102" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 175)
+
+[node name="Pellet103" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 148)
+
+[node name="Pellet104" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(229, 148)
+
+[node name="Pellet105" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(256, 148)
+
+[node name="Pellet106" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(283, 148)
+
+[node name="Pellet107" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(310, 148)
+
+[node name="Pellet108" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, 148)
+
+[node name="Pellet109" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, 175)
+
+[node name="Pellet110" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, 202)
+
+[node name="Pellet111" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(310, 229)
+
+[node name="Pellet112" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(283, 229)
+
+[node name="Pellet113" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(283, 256)
+
+[node name="Pellet114" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(283, 283)
+
+[node name="Pellet115" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, 202)
+
+[node name="Pellet116" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, 175)
+
+[node name="Pellet117" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, 148)
+
+[node name="Pellet118" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(67, 148)
+
+[node name="Pellet119" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(94, 148)
+
+[node name="Pellet120" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, 148)
+
+[node name="Pellet121" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(148, 148)
+
+[node name="Pellet122" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(175, 148)
+
+[node name="Pellet123" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 121)
+
+[node name="Pellet124" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 94)
+
+[node name="Pellet125" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 67)
+
+[node name="Pellet126" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 40)
+
+[node name="Pellet127" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, 13)
+
+[node name="Pellet128" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -14)
+
+[node name="Pellet129" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(229, -14)
+
+[node name="Pellet130" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(256, -14)
+
+[node name="Pellet131" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(283, -14)
+
+[node name="Pellet132" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(310, -14)
+
+[node name="Pellet133" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, -14)
+
+[node name="Pellet134" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(364, -14)
+
+[node name="Pellet135" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(175, -14)
+
+[node name="Pellet136" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(148, -14)
+
+[node name="Pellet137" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, -14)
+
+[node name="Pellet138" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, 13)
+
+[node name="Pellet139" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, 40)
+
+[node name="Pellet140" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, 67)
+
+[node name="Pellet141" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, 94)
+
+[node name="Pellet142" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, 121)
+
+[node name="Pellet143" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(67, 67)
+
+[node name="Pellet144" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(94, 67)
+
+[node name="Pellet145" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, 67)
+
+[node name="Pellet146" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(13, 67)
+
+[node name="Pellet147" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-14, 67)
+
+[node name="Pellet148" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, 67)
+
+[node name="Pellet149" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-68, 67)
+
+[node name="Pellet150" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-95, 67)
+
+[node name="Pellet151" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, 67)
+
+[node name="Pellet152" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, 94)
+
+[node name="Pellet153" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, 121)
+
+[node name="Pellet154" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 121)
+
+[node name="Pellet155" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 94)
+
+[node name="Pellet156" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 67)
+
+[node name="Pellet157" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 40)
+
+[node name="Pellet158" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, 13)
+
+[node name="Pellet159" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -14)
+
+[node name="Pellet160" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-230, -14)
+
+[node name="Pellet161" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-257, -14)
+
+[node name="Pellet162" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-284, -14)
+
+[node name="Pellet163" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-311, -14)
+
+[node name="Pellet164" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, -14)
+
+[node name="Pellet165" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-365, -14)
+
+[node name="Pellet166" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-176, -14)
+
+[node name="Pellet167" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-149, -14)
+
+[node name="Pellet168" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, -14)
+
+[node name="Pellet169" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, 13)
+
+[node name="Pellet170" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, 40)
+
+[node name="Pellet171" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, -41)
+
+[node name="Pellet172" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, -68)
+
+[node name="Pellet173" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, -95)
+
+[node name="Pellet174" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-95, -95)
+
+[node name="Pellet175" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-68, -95)
+
+[node name="Pellet176" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, -95)
+
+[node name="Pellet177" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-14, -95)
+
+[node name="Pellet178" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(13, -95)
+
+[node name="Pellet179" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(67, -95)
+
+[node name="Pellet180" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, -95)
+
+[node name="Pellet181" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(94, -95)
+
+[node name="Pellet182" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, -95)
+
+[node name="Pellet183" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, -68)
+
+[node name="Pellet184" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, -41)
+
+[node name="Pellet185" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -41)
+
+[node name="Pellet186" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -68)
+
+[node name="Pellet187" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -95)
+
+[node name="Pellet188" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -122)
+
+[node name="Pellet189" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -149)
+
+[node name="Pellet190" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -176)
+
+[node name="Pellet191" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(229, -176)
+
+[node name="Pellet192" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(256, -176)
+
+[node name="Pellet193" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(283, -176)
+
+[node name="Pellet194" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(310, -176)
+
+[node name="Pellet195" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, -176)
+
+[node name="Pellet196" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, -203)
+
+[node name="Pellet197" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, -230)
+
+[node name="Pellet198" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, -257)
+
+[node name="Pellet199" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, -284)
+
+[node name="Pellet200" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, -338)
+
+[node name="Pellet201" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(337, -365)
+
+[node name="Pellet202" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(310, -365)
+
+[node name="Pellet203" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(283, -365)
+
+[node name="Pellet204" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(256, -365)
+
+[node name="Pellet205" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(229, -365)
+
+[node name="Pellet206" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -365)
+
+[node name="Pellet207" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(175, -365)
+
+[node name="Pellet208" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(148, -365)
+
+[node name="Pellet209" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, -365)
+
+[node name="Pellet210" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(94, -365)
+
+[node name="Pellet211" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(67, -365)
+
+[node name="Pellet212" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, -365)
+
+[node name="Pellet213" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, -338)
+
+[node name="Pellet214" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, -311)
+
+[node name="Pellet215" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, -284)
+
+[node name="Pellet216" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, -257)
+
+[node name="Pellet217" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(67, -257)
+
+[node name="Pellet218" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(94, -257)
+
+[node name="Pellet219" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, -257)
+
+[node name="Pellet220" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(148, -257)
+
+[node name="Pellet221" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(175, -257)
+
+[node name="Pellet222" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -257)
+
+[node name="Pellet223" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(229, -257)
+
+[node name="Pellet224" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(283, -257)
+
+[node name="Pellet225" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(256, -257)
+
+[node name="Pellet226" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(310, -257)
+
+[node name="Pellet227" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -284)
+
+[node name="Pellet228" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -338)
+
+[node name="Pellet229" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -311)
+
+[node name="Pellet230" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -230)
+
+[node name="Pellet231" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(202, -203)
+
+[node name="Pellet232" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, -203)
+
+[node name="Pellet233" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, -230)
+
+[node name="Pellet234" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(121, -176)
+
+[node name="Pellet235" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(94, -176)
+
+[node name="Pellet236" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(67, -176)
+
+[node name="Pellet237" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, -176)
+
+[node name="Pellet238" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, -149)
+
+[node name="Pellet239" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(40, -122)
+
+[node name="Pellet240" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, -122)
+
+[node name="Pellet241" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, -149)
+
+[node name="Pellet242" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, -176)
+
+[node name="Pellet243" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-68, -176)
+
+[node name="Pellet244" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-95, -176)
+
+[node name="Pellet245" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, -176)
+
+[node name="Pellet246" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, -203)
+
+[node name="Pellet247" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, -230)
+
+[node name="Pellet248" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, -257)
+
+[node name="Pellet249" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-68, -257)
+
+[node name="Pellet250" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-95, -257)
+
+[node name="Pellet251" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, -257)
+
+[node name="Pellet252" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-14, -257)
+
+[node name="Pellet253" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(13, -257)
+
+[node name="Pellet254" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, -284)
+
+[node name="Pellet255" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, -311)
+
+[node name="Pellet256" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, -338)
+
+[node name="Pellet257" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-41, -365)
+
+[node name="Pellet258" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-68, -365)
+
+[node name="Pellet259" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-95, -365)
+
+[node name="Pellet260" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-122, -365)
+
+[node name="Pellet261" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-149, -365)
+
+[node name="Pellet262" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-176, -365)
+
+[node name="Pellet263" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -365)
+
+[node name="Pellet264" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-230, -365)
+
+[node name="Pellet265" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-257, -365)
+
+[node name="Pellet266" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-311, -365)
+
+[node name="Pellet267" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-284, -365)
+
+[node name="Pellet268" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, -365)
+
+[node name="Pellet269" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, -338)
+
+[node name="Pellet270" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, -284)
+
+[node name="Pellet271" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, -257)
+
+[node name="Pellet272" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, -230)
+
+[node name="Pellet273" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, -203)
+
+[node name="Pellet274" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-338, -176)
+
+[node name="Pellet275" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-311, -176)
+
+[node name="Pellet276" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-284, -176)
+
+[node name="Pellet277" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-257, -176)
+
+[node name="Pellet278" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-230, -176)
+
+[node name="Pellet279" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -176)
+
+[node name="Pellet280" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -203)
+
+[node name="Pellet281" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -230)
+
+[node name="Pellet282" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -257)
+
+[node name="Pellet283" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -284)
+
+[node name="Pellet284" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -311)
+
+[node name="Pellet285" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -338)
+
+[node name="Pellet286" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-230, -257)
+
+[node name="Pellet287" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-257, -257)
+
+[node name="Pellet288" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-284, -257)
+
+[node name="Pellet289" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-311, -257)
+
+[node name="Pellet290" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-176, -257)
+
+[node name="Pellet291" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-149, -257)
+
+[node name="Pellet292" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -149)
+
+[node name="Pellet293" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -122)
+
+[node name="Pellet294" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -95)
+
+[node name="Pellet295" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -68)
+
+[node name="Pellet296" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -41)
+
+[node name="Pellet297" parent="Pellets" instance=ExtResource("3_y2ail")]
+position = Vector2(-203, -41)
