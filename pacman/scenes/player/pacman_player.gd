@@ -41,6 +41,6 @@ func get_input() -> void:
 		next_rotation = 90
 
 func can_move_in_direction(dir: Vector2, delta: float) -> bool:
-	shape_query.transform = global_transform.translated(dir * speed * delta * 2)
+	shape_query.transform = global_transform.translated(dir * speed * delta * 3)
 	var result = get_world_2d().direct_space_state.intersect_shape(shape_query)
 	return result.size() == 0

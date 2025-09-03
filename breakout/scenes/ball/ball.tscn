@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7nmhmjca70qw"]
 
 [ext_resource type="Texture2D" uid="uid://gfal05cnct2l" path="res://pong/scenes/ball/Ball.png" id="1_3jr37"]
-[ext_resource type="Script" path="res://breakout/scenes/ball/ball.gd" id="1_4qlwc"]
+[ext_resource type="Script" uid="uid://5vv773exvr8p" path="res://breakout/scenes/ball/ball.gd" id="1_4qlwc"]
 [ext_resource type="AudioStream" uid="uid://d3tvi1ihjrfqm" path="res://pong/assets/audio/bounce_1.mp3" id="3_6eaww"]
 [ext_resource type="AudioStream" uid="uid://bb13pv3il1j1y" path="res://pong/assets/audio/bounce_2.mp3" id="4_xja2d"]
 

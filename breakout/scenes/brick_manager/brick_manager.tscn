@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cf8r33mdk6chq"]
 
-[ext_resource type="Script" path="res://breakout/scenes/brick_manager/brick_manager.gd" id="1_bm2we"]
+[ext_resource type="Script" uid="uid://bgc003xycafk3" path="res://breakout/scenes/brick_manager/brick_manager.gd" id="1_bm2we"]
 [ext_resource type="PackedScene" uid="uid://b4bnxhpgify1j" path="res://breakout/scenes/brick/brick.tscn" id="2_o4hho"]
 
 [node name="BrickManager" type="Node"]

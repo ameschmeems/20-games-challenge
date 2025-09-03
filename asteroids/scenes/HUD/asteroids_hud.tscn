@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxvjd043p6nrr"]
 
-[ext_resource type="Script" path="res://asteroids/scenes/HUD/asteroids_hud.gd" id="1_56rcf"]
+[ext_resource type="Script" uid="uid://dvkcm4cfvb3sq" path="res://asteroids/scenes/HUD/asteroids_hud.gd" id="1_56rcf"]
 
 [node name="AsteroidsHUD" type="CanvasLayer"]
 script = ExtResource("1_56rcf")

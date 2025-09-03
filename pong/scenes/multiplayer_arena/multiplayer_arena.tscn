@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://co8ohk6nli17o"]
 
 [ext_resource type="Texture2D" uid="uid://8sfst7jireat" path="res://pong/assets/Board.png" id="1_7yeis"]
-[ext_resource type="Script" path="res://pong/scenes/multiplayer_arena/multiplayer_arena.gd" id="1_xjor3"]
+[ext_resource type="Script" uid="uid://drk1r05ugq2lr" path="res://pong/scenes/multiplayer_arena/multiplayer_arena.gd" id="1_xjor3"]
 [ext_resource type="PackedScene" uid="uid://lqwsssaowwgn" path="res://pong/scenes/ball/ball.tscn" id="2_jgbj8"]
 [ext_resource type="PackedScene" uid="uid://04u4q84qgfbl" path="res://pong/scenes/UI/score_ui/score_ui.tscn" id="3_3l2ti"]
 [ext_resource type="PackedScene" uid="uid://qfjji0ouv0ao" path="res://common/UI/pause_menu/pause_menu.tscn" id="3_5eexj"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d3g4hdil7827u"]
 
-[ext_resource type="Script" path="res://frogger/scenes/HUD/frogger_hud.gd" id="1_u0jcp"]
+[ext_resource type="Script" uid="uid://dx8dqy0e6ukut" path="res://frogger/scenes/HUD/frogger_hud.gd" id="1_u0jcp"]
 
 [node name="FroggerHUD" type="CanvasLayer"]
 script = ExtResource("1_u0jcp")

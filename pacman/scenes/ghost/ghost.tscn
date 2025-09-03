@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1ntspt5bk3kj"]
+
+[ext_resource type="Texture2D" uid="uid://chnhv5vgk7jdn" path="res://pacman/assets/Ghost/Ghost_Body_01.png" id="1_bkguk"]
+[ext_resource type="Script" uid="uid://52bxx8kslnbk" path="res://pacman/scenes/ghost/ghost.gd" id="1_n0wcq"]
+[ext_resource type="Texture2D" uid="uid://cu4an364w4bk4" path="res://pacman/assets/Ghost/Ghost_Eyes_Down.png" id="2_ow1l5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8j64g"]
+radius = 8.0
+
+[node name="Ghost" type="Area2D"]
+script = ExtResource("1_n0wcq")
+
+[node name="BodySprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_bkguk")
+
+[node name="EyeSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_ow1l5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8j64g")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

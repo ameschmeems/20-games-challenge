@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cwuh20el1nm28"]
 
 [ext_resource type="PackedScene" uid="uid://cf8r33mdk6chq" path="res://breakout/scenes/brick_manager/brick_manager.tscn" id="1_ksfm4"]
-[ext_resource type="Script" path="res://breakout/scenes/arena/arena.gd" id="1_n3jai"]
+[ext_resource type="Script" uid="uid://dfrejbwx2uk2" path="res://breakout/scenes/arena/arena.gd" id="1_n3jai"]
 [ext_resource type="PackedScene" uid="uid://bgp5ksj58p7sk" path="res://breakout/scenes/paddle/paddle.tscn" id="1_u6fa1"]
 [ext_resource type="PackedScene" uid="uid://c7nmhmjca70qw" path="res://breakout/scenes/ball/ball.tscn" id="2_wpmf2"]
 [ext_resource type="PackedScene" uid="uid://qfjji0ouv0ao" path="res://common/UI/pause_menu/pause_menu.tscn" id="3_6w0xf"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://h16gtyhdrpry"]
 
-[ext_resource type="Script" path="res://frogger/scenes/lilypad/lilypad.gd" id="1_1lf2w"]
+[ext_resource type="Script" uid="uid://dw3deaovy7txh" path="res://frogger/scenes/lilypad/lilypad.gd" id="1_1lf2w"]
 [ext_resource type="Texture2D" uid="uid://0mkm1pugh3o0" path="res://frogger/scenes/lilypad/lilypad.png" id="2_pauo6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sj0iy"]

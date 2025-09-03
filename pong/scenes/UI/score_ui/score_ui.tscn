@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://04u4q84qgfbl"]
 
-[ext_resource type="Script" path="res://pong/scenes/UI/score_ui/score_ui.gd" id="1_85lkh"]
+[ext_resource type="Script" uid="uid://nt2l4ne45i0k" path="res://pong/scenes/UI/score_ui/score_ui.gd" id="1_85lkh"]
 
 [node name="ScoreUI" type="CanvasLayer"]
 script = ExtResource("1_85lkh")

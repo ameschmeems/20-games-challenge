@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjivhxpsfbrh"]
 
-[ext_resource type="Script" path="res://pacman/scenes/teleport/pacman_teleport.gd" id="1_gniey"]
+[ext_resource type="Script" uid="uid://bfk0e0e0m7g3p" path="res://pacman/scenes/teleport/pacman_teleport.gd" id="1_gniey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ki0eg"]
 size = Vector2(2, 54)

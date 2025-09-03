@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://2n3k10keqbqp"]
 
-[ext_resource type="Script" path="res://asteroids/scenes/asteroid/asteroid.gd" id="1_vcfsc"]
+[ext_resource type="Script" uid="uid://c2lc5eigwngt3" path="res://asteroids/scenes/asteroid/asteroid.gd" id="1_vcfsc"]
 [ext_resource type="AudioStream" uid="uid://dqb2cewyd72wa" path="res://asteroids/sfx/bangMedium.wav" id="2_l886q"]
 [ext_resource type="Texture2D" uid="uid://58qgk52gqhul" path="res://asteroids/scenes/asteroid/asteroid.png" id="2_s34xh"]
 

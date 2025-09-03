@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://sa0drb4lotx2"]
 
-[ext_resource type="Script" path="res://asteroids/scenes/player/asteroids_player.gd" id="1_0inm5"]
+[ext_resource type="Script" uid="uid://cejfc3j6nebxd" path="res://asteroids/scenes/player/asteroids_player.gd" id="1_0inm5"]
 [ext_resource type="Texture2D" uid="uid://ctmpk1yonr5uk" path="res://asteroids/scenes/player/ship.png" id="2_ouj6r"]
 [ext_resource type="AudioStream" uid="uid://ddpm6ur122iyh" path="res://asteroids/sfx/thrust.wav" id="2_ph2e0"]
 [ext_resource type="AudioStream" uid="uid://dqb2cewyd72wa" path="res://asteroids/sfx/bangMedium.wav" id="2_psqfj"]
