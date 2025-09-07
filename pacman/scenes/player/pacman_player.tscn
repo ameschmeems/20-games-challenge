@@ -1,9 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtoxqvfbfedar"]
+[gd_scene load_steps=18 format=3 uid="uid://dtoxqvfbfedar"]
 
 [ext_resource type="Texture2D" uid="uid://bswmtc6liofdd" path="res://pacman/assets/Pacman/Pacman_02.png" id="1_2qxr5"]
 [ext_resource type="Script" uid="uid://7qih3quvyp18" path="res://pacman/scenes/player/pacman_player.gd" id="1_7wv0b"]
 [ext_resource type="Texture2D" uid="uid://bsmwh4jwkrimu" path="res://pacman/assets/Pacman/Pacman_01.png" id="3_kqbqt"]
 [ext_resource type="Texture2D" uid="uid://qiujdy4jpbw3" path="res://pacman/assets/Pacman/Pacman_03.png" id="4_lwe5k"]
+[ext_resource type="Texture2D" uid="uid://btdahk3q2s6ea" path="res://pacman/assets/Pacman/Pacman_Death_01.png" id="5_4iayb"]
+[ext_resource type="Texture2D" uid="uid://4m485qkj8812" path="res://pacman/assets/Pacman/Pacman_Death_02.png" id="6_s0i6g"]
+[ext_resource type="Texture2D" uid="uid://dqtdsvgrs1cyp" path="res://pacman/assets/Pacman/Pacman_Death_03.png" id="7_qrjq8"]
+[ext_resource type="Texture2D" uid="uid://bxj5gfwkityc7" path="res://pacman/assets/Pacman/Pacman_Death_04.png" id="8_0061o"]
+[ext_resource type="Texture2D" uid="uid://bsagjbgg3iyj8" path="res://pacman/assets/Pacman/Pacman_Death_05.png" id="9_t0iwg"]
+[ext_resource type="Texture2D" uid="uid://dmy1htrcalcr1" path="res://pacman/assets/Pacman/Pacman_Death_06.png" id="10_uvbhx"]
+[ext_resource type="Texture2D" uid="uid://4gcgesdfix7t" path="res://pacman/assets/Pacman/Pacman_Death_07.png" id="11_h5x1u"]
+[ext_resource type="Texture2D" uid="uid://cs04a8pw4kgor" path="res://pacman/assets/Pacman/Pacman_Death_08.png" id="12_pun4n"]
+[ext_resource type="Texture2D" uid="uid://bif81ovvxktw7" path="res://pacman/assets/Pacman/Pacman_Death_09.png" id="13_siwxj"]
+[ext_resource type="Texture2D" uid="uid://cs8otdyrf12ax" path="res://pacman/assets/Pacman/Pacman_Death_10.png" id="14_0vnla"]
+[ext_resource type="Texture2D" uid="uid://bvc547amq7ak1" path="res://pacman/assets/Pacman/Pacman_Death_11.png" id="15_cg78i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qyqwq"]
 animations = [{
@@ -23,20 +34,61 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4iayb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s0i6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qrjq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0061o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t0iwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_uvbhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_h5x1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pun4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_siwxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0vnla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_cg78i")
+}],
+"loop": false,
+"name": &"die",
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0x6hw"]
 radius = 7.0
 
 [node name="PacmanPlayer" type="CharacterBody2D"]
+process_mode = 3
 collision_layer = 2
 script = ExtResource("1_7wv0b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qyqwq")
+animation = &"die"
 autoplay = "default"
-frame_progress = 0.694451
+frame = 10
+frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

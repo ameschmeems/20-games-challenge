@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://nomcrjvj5ci"]
+
+[ext_resource type="Script" uid="uid://bgr82xxc32aj4" path="res://pacman/resources/movement_targets.gd" id="1_mnlum"]
+
+[resource]
+script = ExtResource("1_mnlum")
+scatter_targets = Array[Vector2]([Vector2(-338, -257), Vector2(-338, -365), Vector2(-203, -365), Vector2(-203, -257)])
+at_home_targets = Array[Vector2]([])

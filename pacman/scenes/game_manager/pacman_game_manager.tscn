@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci47553lsunpo"]
+
+[ext_resource type="Script" uid="uid://cm2yjmoxapsah" path="res://pacman/scenes/game_manager/pacman_game_manager.gd" id="1_j6o6j"]
+
+[node name="PacmanGameManager" type="Node"]
+script = ExtResource("1_j6o6j")

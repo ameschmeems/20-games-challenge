@@ -1,22 +1,28 @@
 extends CharacterBody2D
 class_name PacmanPlayer
 
-@export var speed: float = 250.0
+signal player_died
+
+@export var speed: float = 300.0
 
 var next_movement_direction: Vector2 = Vector2.ZERO
 var next_rotation: float = 0.0
 var movement_direction: Vector2 = Vector2.ZERO
 var shape_query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
+var dying: bool = false
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	shape_query.shape = collision_shape.shape
 	shape_query.collision_mask = 1
 
 func _physics_process(delta: float) -> void:
-	get_input()
+	if dying:
+		return
 
+	get_input()
 	if movement_direction == Vector2.ZERO:
 		movement_direction = next_movement_direction
 	if can_move_in_direction(next_movement_direction, delta):
@@ -44,3 +50,10 @@ func can_move_in_direction(dir: Vector2, delta: float) -> bool:
 	shape_query.transform = global_transform.translated(dir * speed * delta * 3)
 	var result = get_world_2d().direct_space_state.intersect_shape(shape_query)
 	return result.size() == 0
+
+func die() -> void:
+	player_died.emit()
+	dying = true
+	movement_direction = Vector2.ZERO
+	next_movement_direction = Vector2.ZERO
+	anim.play("die")
