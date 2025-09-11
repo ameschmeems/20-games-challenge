@@ -13,6 +13,7 @@ var dying: bool = false
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sfx_death: AudioStreamPlayer = $SfxDeath
 
 func _ready() -> void:
 	shape_query.shape = collision_shape.shape
@@ -57,3 +58,5 @@ func die() -> void:
 	movement_direction = Vector2.ZERO
 	next_movement_direction = Vector2.ZERO
 	anim.play("die")
+	sfx_death.play()
+	process_mode = Node.PROCESS_MODE_ALWAYS

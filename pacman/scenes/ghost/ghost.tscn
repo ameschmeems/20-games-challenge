@@ -1,12 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1ntspt5bk3kj"]
+[gd_scene load_steps=16 format=3 uid="uid://b1ntspt5bk3kj"]
 
 [ext_resource type="Texture2D" uid="uid://chnhv5vgk7jdn" path="res://pacman/assets/Ghost/Ghost_Body_01.png" id="1_bkguk"]
 [ext_resource type="Script" uid="uid://52bxx8kslnbk" path="res://pacman/scenes/ghost/ghost.gd" id="1_n0wcq"]
 [ext_resource type="Texture2D" uid="uid://cu4an364w4bk4" path="res://pacman/assets/Ghost/Ghost_Eyes_Down.png" id="2_ow1l5"]
 [ext_resource type="Texture2D" uid="uid://fngqa6kfphj6" path="res://pacman/assets/Ghost/Ghost_Body_02.png" id="3_dv6jg"]
+[ext_resource type="Texture2D" uid="uid://dwed810r1hfh6" path="res://pacman/assets/Ghost/Ghost_Vulnerable_Blue_01.png" id="4_hqirl"]
+[ext_resource type="Texture2D" uid="uid://ckjqytq3eyu1j" path="res://pacman/assets/Ghost/Ghost_Vulnerable_Blue_02.png" id="5_p1s1e"]
 [ext_resource type="Texture2D" uid="uid://behwppnla6120" path="res://pacman/assets/Ghost/Ghost_Eyes_Left.png" id="5_p4m61"]
+[ext_resource type="Texture2D" uid="uid://urxsgcooqde5" path="res://pacman/assets/Ghost/Ghost_Vulnerable_White_01.png" id="6_gc4ge"]
 [ext_resource type="Texture2D" uid="uid://dnba52fjsfwj5" path="res://pacman/assets/Ghost/Ghost_Eyes_Right.png" id="6_skcim"]
+[ext_resource type="Texture2D" uid="uid://b87x3s5i10bd" path="res://pacman/assets/Ghost/Ghost_Vulnerable_White_02.png" id="7_i215e"]
 [ext_resource type="Texture2D" uid="uid://bmhhl50b8j8m8" path="res://pacman/assets/Ghost/Ghost_Eyes_Up.png" id="7_vdm8o"]
+[ext_resource type="AudioStream" uid="uid://w5kxjotgrthq" path="res://pacman/assets/Sounds/pacman_eatghost.wav" id="12_p1s1e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qy66k"]
 animations = [{
@@ -19,6 +24,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hqirl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p1s1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gc4ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_i215e")
+}],
+"loop": true,
+"name": &"vulnerable",
 "speed": 5.0
 }]
 
@@ -67,9 +89,8 @@ script = ExtResource("1_n0wcq")
 [node name="BodyAnim" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qy66k")
-animation = &"move"
+animation = &"vulnerable"
 autoplay = "move"
-frame_progress = 0.725325
 
 [node name="EyeAnim" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -80,4 +101,13 @@ animation = &"move_up"
 shape = SubResource("CircleShape2D_8j64g")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
+
+[node name="ChasePositionTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ScatterTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="SfxEaten" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_p1s1e")

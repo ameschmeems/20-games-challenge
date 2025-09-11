@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci47553lsunpo"]
+[gd_scene load_steps=4 format=3 uid="uid://ci47553lsunpo"]
 
 [ext_resource type="Script" uid="uid://cm2yjmoxapsah" path="res://pacman/scenes/game_manager/pacman_game_manager.gd" id="1_j6o6j"]
+[ext_resource type="AudioStream" uid="uid://c5q6vbq22bqui" path="res://pacman/assets/Sounds/pacman_chomp.wav" id="2_pcwie"]
+[ext_resource type="AudioStream" uid="uid://baxpv2jqqif7l" path="res://pacman/assets/Sounds/pacman_power_pellet.wav" id="3_gbsqx"]
 
 [node name="PacmanGameManager" type="Node"]
 script = ExtResource("1_j6o6j")
+
+[node name="PowerPelletTimer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="SfxPelletEaten" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_pcwie")
+
+[node name="SfxPowerPelletEaten" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gbsqx")

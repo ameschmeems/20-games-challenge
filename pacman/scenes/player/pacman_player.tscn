@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dtoxqvfbfedar"]
+[gd_scene load_steps=19 format=3 uid="uid://dtoxqvfbfedar"]
 
 [ext_resource type="Texture2D" uid="uid://bswmtc6liofdd" path="res://pacman/assets/Pacman/Pacman_02.png" id="1_2qxr5"]
 [ext_resource type="Script" uid="uid://7qih3quvyp18" path="res://pacman/scenes/player/pacman_player.gd" id="1_7wv0b"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bif81ovvxktw7" path="res://pacman/assets/Pacman/Pacman_Death_09.png" id="13_siwxj"]
 [ext_resource type="Texture2D" uid="uid://cs8otdyrf12ax" path="res://pacman/assets/Pacman/Pacman_Death_10.png" id="14_0vnla"]
 [ext_resource type="Texture2D" uid="uid://bvc547amq7ak1" path="res://pacman/assets/Pacman/Pacman_Death_11.png" id="15_cg78i"]
+[ext_resource type="AudioStream" uid="uid://dp336nwgseitt" path="res://pacman/assets/Sounds/pacman_death.wav" id="16_s0i6g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qyqwq"]
 animations = [{
@@ -78,7 +79,6 @@ animations = [{
 radius = 7.0
 
 [node name="PacmanPlayer" type="CharacterBody2D"]
-process_mode = 3
 collision_layer = 2
 script = ExtResource("1_7wv0b")
 
@@ -93,3 +93,6 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0x6hw")
+
+[node name="SfxDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_s0i6g")
