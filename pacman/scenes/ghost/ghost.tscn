@@ -106,8 +106,9 @@ shape = SubResource("CircleShape2D_8j64g")
 one_shot = true
 
 [node name="ScatterTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 8.0
 one_shot = true
 
 [node name="SfxEaten" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_p1s1e")
+volume_db = -5.0

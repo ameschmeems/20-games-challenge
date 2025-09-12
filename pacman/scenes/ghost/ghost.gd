@@ -5,7 +5,8 @@ enum State {
 	SCATTER,
 	CHASE,
 	RUN_AWAY,
-	EATEN
+	EATEN,
+	AT_HOME
 }
 
 enum GhostType {
@@ -20,7 +21,9 @@ signal ghost_eaten
 const TILE_SIZE: float = 27.0
 
 var current_scatter_index: int = 0
+var current_home_index: int = 0
 var current_state: State = State.SCATTER
+var respawn_point = Vector2(0.0, -16.0)
 
 @export var speed: float = 160
 @export var movement_targets: Resource
@@ -49,7 +52,10 @@ func _ready() -> void:
 	play_default_anim()
 
 	setup()
-	scatter()
+	if ghost_type == GhostType.RED:
+		scatter()
+	else:
+		at_home()
 
 func _process(delta: float) -> void:
 	if (!NavigationServer2D.map_get_iteration_id(tile_map.get_navigation_map())):
@@ -102,11 +108,15 @@ func run_away() -> void:
 	var random_rotation_degrees = randf_range(-PI/2, PI/2)
 	nav_agent.target_position = (-global_position.direction_to(player.global_position)).rotated(random_rotation_degrees) * 8 * TILE_SIZE
 
+func at_home() -> void:
+	current_state = State.AT_HOME
+	nav_agent.target_position = movement_targets.at_home_targets[current_home_index]
+
 func eaten() -> void:
 	sfx_eaten.play()
 	ghost_eaten.emit()
 	current_state = State.EATEN
-	nav_agent.target_position = Vector2.ZERO
+	nav_agent.target_position = respawn_point
 	play_default_anim()
 	body_anim.visible = false
 	collision_shape.set_deferred("disabled", true)
@@ -142,9 +152,9 @@ func move(target: Vector2, delta: float):
 	global_position += new_velocity
 
 func on_navigation_finished() -> void:
-	current_scatter_index = (current_scatter_index + 1) % movement_targets.scatter_targets.size()
 	match current_state:
 		State.SCATTER:
+			current_scatter_index = (current_scatter_index + 1) % movement_targets.scatter_targets.size()
 			nav_agent.target_position = get_scatter_pos()
 		State.CHASE:
 			chase()
@@ -155,6 +165,9 @@ func on_navigation_finished() -> void:
 			body_anim.play("move")
 			collision_shape.set_deferred("disabled", false)
 			chase()
+		State.AT_HOME:
+			current_home_index = (current_home_index + 1) % movement_targets.at_home_targets.size()
+			at_home()
 
 func on_body_entered(body: PacmanPlayer) -> void:
 	if current_state != State.RUN_AWAY:

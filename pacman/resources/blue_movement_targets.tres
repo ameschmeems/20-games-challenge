@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_7nqrh")
 scatter_targets = Array[Vector2]([Vector2(338, 391), Vector2(41, 391), Vector2(122, 229)])
-at_home_targets = Array[Vector2]([])
+at_home_targets = Array[Vector2]([Vector2(-56, 0), Vector2(-56, -32)])

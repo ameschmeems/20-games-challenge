@@ -3,6 +3,7 @@ extends Node
 var score: int = 0
 var lives: int = 3
 var pellets_left: int = 0
+var total_pellets: int = 0
 var main_menu_scene: PackedScene = load("res://common/UI/game_select_screen/game_select_screen.tscn")
 var ghost_array: Array[Ghost] = []
 
@@ -26,6 +27,7 @@ func _ready() -> void:
 	power_pellet_timer.timeout.connect(on_power_pellet_timer_timeout)
 	for pellet in pellets_node.get_children():
 		pellets_left += 1
+		total_pellets += 1
 		if pellet is Pellet:
 			pellet.pellet_collected.connect(on_pellet_collected)
 		if pellet is PowerPellet:
@@ -49,11 +51,33 @@ func _process(_delta: float) -> void:
 		win_screen_instance.main_menu_scene = main_menu_scene
 		return
 
+func setup_ghosts():
+	for ghost in ghost_array:
+		ghost.global_position = ghost.movement_targets.at_home_targets[0]
+		if ghost.current_state != Ghost.State.AT_HOME && ghost.current_state != Ghost.State.EATEN:
+			ghost.scatter()
+
 func on_pellet_collected() -> void:
 	score += 10
 	pellets_left -= 1
 	hud.update_score_display(score)
-	sfx_pellet_eaten.play()
+	if !sfx_pellet_eaten.playing:
+		sfx_pellet_eaten.play()
+	var pellets_eaten: int = total_pellets - pellets_left
+	if pellets_eaten >= 80:
+		return
+	elif pellets_eaten >= 20 && pellets_eaten < 40:
+		for ghost in ghost_array:
+			if ghost.ghost_type == ghost.GhostType.PINK && ghost.current_state == ghost.State.AT_HOME:
+				ghost.scatter()
+	elif pellets_eaten >= 40 && pellets_eaten < 60:
+		for ghost in ghost_array:
+			if ghost.ghost_type == ghost.GhostType.BLUE && ghost.current_state == ghost.State.AT_HOME:
+				ghost.scatter()
+	elif pellets_eaten >= 60 && pellets_eaten < 80:
+		for ghost in ghost_array:
+			if ghost.ghost_type == ghost.GhostType.ORANGE && ghost.current_state == ghost.State.AT_HOME:
+				ghost.scatter()
 
 func on_power_pellet_collected() -> void:
 	score += 50
@@ -61,15 +85,17 @@ func on_power_pellet_collected() -> void:
 	hud.update_score_display(score)
 	power_pellet_timer.start()
 	for ghost in ghost_array:
-		if ghost.current_state == Ghost.State.EATEN:
-			return
+		if ghost.current_state == Ghost.State.EATEN || ghost.current_state == Ghost.State.AT_HOME:
+			continue
 		ghost.run_away()
 		ghost.play_vuln_anim()
 	sfx_power_pellet_eaten.play()
 
 func on_player_died() -> void:
 	get_tree().paused = true
+	sfx_power_pellet_eaten.stop()
 	await player.anim.animation_finished
+	await player.sfx_death.finished
 	player.process_mode = Node.PROCESS_MODE_INHERIT
 	lives -= 1
 	if lives == 0:
@@ -83,13 +109,15 @@ func on_player_died() -> void:
 	player.anim.play("default")
 	player.global_position = player_start_pos
 	player.dying = false
+	setup_ghosts()
 
 func on_power_pellet_timer_timeout() -> void:
 	for ghost in ghost_array:
-		if ghost.current_state == Ghost.State.EATEN:
-			return
+		if ghost.current_state == Ghost.State.EATEN || ghost.current_state == Ghost.State.AT_HOME:
+			continue
 		ghost.chase()
 		ghost.play_default_anim()
+	sfx_power_pellet_eaten.stop()
 
 func on_ghost_eaten() -> void:
 	score += 200
